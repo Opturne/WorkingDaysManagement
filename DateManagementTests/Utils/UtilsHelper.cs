@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace DateManagementTests.Utils
 {
-    public static class Utilitaires
+    public static class UtilsHelper
     {
         public static List<DateTime> listJourFeries = new List<DateTime>
         {
@@ -19,9 +19,9 @@ namespace DateManagementTests.Utils
             new DateTime(2016,12,26)
         };
 
-        public static DateManagementHelper CreateDateManagementBLL(DateTime testDate)
+        public static DateManagementHelper CreateDateManagementHelper()
         {
-            return new DateManagementHelper(listJourFeries, testDate);
+            return new DateManagementHelper(listJourFeries);
         }
     }
 }

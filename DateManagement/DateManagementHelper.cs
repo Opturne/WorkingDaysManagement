@@ -6,83 +6,117 @@ namespace DateManagement
 {
     public class DateManagementHelper
     {
-        private readonly DateTime _dateExecution;
+        public readonly List<DateTime> ListHolidays;
 
-        public readonly List<DateTime> ListJourFeries;
-
-        public DateManagementHelper(List<DateTime> listJourFeries, DateTime dateExecution)
+        public DateManagementHelper(List<DateTime> listHolidays)
         {
-            _dateExecution = dateExecution;
-            ListJourFeries = listJourFeries;
+            ListHolidays = listHolidays;
         }
 
         /// <summary>
-        /// Retourne le nombre de jours avant le prochain jour ouvré en J + 1 an
+        /// Return the last working day of the interval
         /// </summary>
         /// <returns></returns>
-        public double GetNbJoursAvantOuvreUnAn()
+        public DateTime GetEndInterval(DateTime dateReference, TimeSpan span)
         {
-            var jourPlusUnAn = _dateExecution.AddYears(1);
-
-            if (IsFerie(jourPlusUnAn) || jourPlusUnAn.DayOfWeek == DayOfWeek.Saturday || jourPlusUnAn.DayOfWeek == DayOfWeek.Sunday)
+            DateTime maxDate;
+            DateTime minDate;
+            if (dateReference.Add(span) > dateReference)
             {
-                jourPlusUnAn = GetLendemain(jourPlusUnAn);
+                maxDate = dateReference.Add(span);
+                minDate = dateReference;
+            }
+            else
+            {
+                maxDate = dateReference;
+                minDate = dateReference.Add(span);
             }
 
-            return (jourPlusUnAn - _dateExecution).TotalDays;
+            return GetLastWorkingDay(maxDate);
         }
 
         /// <summary>
-        /// Retourne la date la plus éloigné du stock
+        /// Return the last working day closest to dateReference
         /// </summary>
-        /// <returns></returns>
-        public DateTime GetDebutStock(int dureeStock)
+        public DateTime GetLastWorkingDay(DateTime dateReference)
         {
-            var jourStock = GetJourStock();
+            var lastWorkingDay = dateReference;
 
-            var nbrJourFerierDurantStock = ListJourFeries.Count(jf => jf.Date >= _dateExecution.AddDays(-dureeStock).Date && jf.Date <= _dateExecution.Date
-                                            && jf.DayOfWeek != DayOfWeek.Saturday && jf.DayOfWeek != DayOfWeek.Sunday);
+            while (IsHoliday(lastWorkingDay) || lastWorkingDay.DayOfWeek == DayOfWeek.Saturday || lastWorkingDay.DayOfWeek == DayOfWeek.Sunday)
+            {
+                lastWorkingDay = lastWorkingDay.AddDays(-1);
+            }
 
-            var nbrJourWeekEnd = Enumerable
-                .Range(0, nbrJourFerierDurantStock)
-                .Select(x => _dateExecution.AddDays(-x))
-                .Count(x => x.DayOfWeek == DayOfWeek.Saturday && x.DayOfWeek == DayOfWeek.Sunday);
-
-            return GetDateMinJourTravaille(jourStock.AddDays(-dureeStock - nbrJourFerierDurantStock - nbrJourWeekEnd),
-                jourStock.AddDays(-dureeStock - nbrJourFerierDurantStock - nbrJourWeekEnd));
-        }
-
-        /// <summary>
-        /// Retourne la date du jour
-        /// </summary>
-        /// <returns></returns>
-        public DateTime GetJourFlux()
-        {
-            return _dateExecution;
-        }
-
-        /// <summary>
-        /// Retourne la date de début du stock
-        /// </summary>
-        public DateTime GetJourStock()
-        {
-            return GetDateMinJourTravaille(_dateExecution, _dateExecution);
+            return lastWorkingDay;
         }
 
         /// <summary>
         /// Retourne la liste des dates du stock (hors férié et week-end)
         /// </summary>
         /// <returns></returns>
-        public List<DateTime> GetListDatesStock(int dureeStock)
+        public List<DateTime> GetListDatesStock(DateTime dateReference, TimeSpan span)
         {
             var listDate = new List<DateTime>();
 
-            for (var date = GetDebutStock(dureeStock); date <= GetVeilleFlux(); date = date.AddDays(1))
+            for (var date = GetStartInterval(dateReference, span); date <= GetYesterdayWorkingDay(dateReference); date = date.AddDays(1))
             {
-                if (!IsFerie(date) && date.DayOfWeek != DayOfWeek.Saturday && date.DayOfWeek != DayOfWeek.Sunday)
+                if (!IsHoliday(date) && date.DayOfWeek != DayOfWeek.Saturday && date.DayOfWeek != DayOfWeek.Sunday)
                     listDate.Add(date);
             }
             return listDate;
+        }
+
+        /// <summary>
+        /// Return the next working day closest to dateReference
+        /// </summary>
+        public DateTime GetNextWorkingDay(DateTime dateReference)
+        {
+            var nextWorkingDay = dateReference;
+
+            while (IsHoliday(nextWorkingDay) || nextWorkingDay.DayOfWeek == DayOfWeek.Saturday || nextWorkingDay.DayOfWeek == DayOfWeek.Sunday)
+            {
+                nextWorkingDay = nextWorkingDay.AddDays(1);
+            }
+
+            return nextWorkingDay;
+        }
+
+        /// <summary>
+        /// Return the number of days before the next working day in exactly one year
+        /// </summary>
+        /// <returns></returns>
+        public double GetNextWorkingDayInOneYear(DateTime dateReference)
+        {
+            var dayAndOneYear = dateReference.AddYears(1);
+
+            while (IsHoliday(dayAndOneYear) || dayAndOneYear.DayOfWeek == DayOfWeek.Saturday || dayAndOneYear.DayOfWeek == DayOfWeek.Sunday)
+            {
+                dayAndOneYear = GetNextWorkingDay(dayAndOneYear);
+            }
+
+            return (dayAndOneYear - dateReference).TotalDays;
+        }
+
+        /// <summary>
+        /// Return the first working day of the interval
+        /// </summary>
+        /// <returns></returns>
+        public DateTime GetStartInterval(DateTime dateReference, TimeSpan span)
+        {
+            DateTime maxDate;
+            DateTime minDate;
+            if (dateReference.Add(span) > dateReference)
+            {
+                maxDate = dateReference.Add(span);
+                minDate = dateReference;
+            }
+            else
+            {
+                maxDate = dateReference;
+                minDate = dateReference.Add(span);
+            }
+
+            return GetYesterdayWorkingDay(minDate);
         }
 
         /// <summary>
@@ -90,50 +124,26 @@ namespace DateManagement
         /// </summary>
         /// <param name="date"></param>
         /// <returns></returns>
-        public DateTime GetLendemain(DateTime date)
+        public DateTime GetTomorrowWorkingDay(DateTime date)
         {
-            var lendemain = date.DayOfWeek == DayOfWeek.Friday
+            var tomorrow = date.DayOfWeek == DayOfWeek.Friday
                 ? date.AddDays(3)
                 : date.AddDays(1);
 
-            while (ListJourFeries.Any(jf => jf.Date == lendemain) || lendemain.DayOfWeek == DayOfWeek.Saturday || lendemain.DayOfWeek == DayOfWeek.Sunday)
-            {
-                lendemain = lendemain.AddDays(1);
-            }
-
-            return lendemain;
+            return GetNextWorkingDay(tomorrow);
         }
 
         /// <summary>
         /// Retourne le dernier jour travaillé précédent le jour passé en parametre
         /// </summary>
         /// <returns></returns>
-        public DateTime GetVeille(DateTime date)
+        public DateTime GetYesterdayWorkingDay(DateTime date)
         {
-            var veilleFlux = date.DayOfWeek == DayOfWeek.Monday
+            var previousDay = date.DayOfWeek == DayOfWeek.Monday
                     ? date.AddDays(-3)
                     : date.AddDays(-1);
 
-            return GetDateMinJourTravaille(veilleFlux, date);
-        }
-
-        public DateTime GetVeilleFlux()
-        {
-            return GetVeille(_dateExecution);
-        }
-
-        /// <summary>
-        /// Retourne le dernier jour travaillé précédent le dernier jour du stock
-        /// </summary>
-        /// <returns></returns>
-        public DateTime GetVeilleStock(int dureeStock)
-        {
-            return GetVeille(GetDebutStock(dureeStock));
-        }
-
-        public bool IsExecutionDateFerie()
-        {
-            return IsFerie(GetJourFlux());
+            return GetLastWorkingDay(previousDay);
         }
 
         /// <summary>
@@ -141,30 +151,9 @@ namespace DateManagement
         /// </summary>
         /// <param name="date"></param>
         /// <returns></returns>
-        public bool IsFerie(DateTime date)
+        public bool IsHoliday(DateTime date)
         {
-            return ListJourFeries.Any(row => row == date);
-        }
-
-        /// <summary>
-        /// Retourne la derniere date travaillé (non weekend ni férié) au plus proche de la DateMin
-        /// </summary>
-        /// <param name="dateMin">Interval bas de date</param>
-        /// <param name="dateMax">Interval haut de date</param>
-        /// <returns></returns>
-        private DateTime GetDateMinJourTravaille(DateTime dateMin, DateTime dateMax)
-        {
-            var nbrJourChaume = ListJourFeries.Count(jf => jf.Date >= dateMin.Date && jf.Date <= dateMax.Date
-                                                            && jf.DayOfWeek != DayOfWeek.Saturday && jf.DayOfWeek != DayOfWeek.Sunday);
-
-            if (nbrJourChaume > 1) nbrJourChaume++; //Si plus d'un jour férié, alors le décompte de la veille disparait
-
-            var resultat = dateMin.AddDays(-nbrJourChaume);
-
-            if (resultat.DayOfWeek == DayOfWeek.Saturday || resultat.DayOfWeek == DayOfWeek.Sunday || ListJourFeries.Any(jf => jf.Date == resultat.Date))
-                resultat = GetDateMinJourTravaille(resultat.AddDays(-1), resultat.AddDays(-1));
-
-            return resultat;
+            return ListHolidays.Any(row => row == date);
         }
     }
 }

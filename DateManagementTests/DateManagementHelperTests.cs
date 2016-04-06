@@ -4,194 +4,202 @@ using System;
 
 namespace DateManagement.Tests
 {
-    [TestClass()]
+    [TestClass]
     public class DateManagementHelperTests
     {
         [TestMethod]
         public void TestCalculDate1JourFerie()
         {
-            var dureeStock = 7;
-            var checkCoeur = Utilitaires.CreateDateManagementBLL(Convert.ToDateTime(Convert.ToDateTime("2015-01-08")));
+            var dureeStock = new TimeSpan(-7, 0, 0, 0);
+            var dateReference = new DateTime(2015, 01, 08);
+            var managementHelper = UtilsHelper.CreateDateManagementHelper();
 
-            Assert.AreEqual(Convert.ToDateTime("2015-01-08"), checkCoeur.GetJourFlux());
-            Assert.AreEqual(Convert.ToDateTime("2015-01-08"), checkCoeur.GetJourStock());
-            Assert.AreEqual(Convert.ToDateTime("2015-01-07"), checkCoeur.GetVeilleFlux());
-            Assert.AreEqual(Convert.ToDateTime("2014-12-30"), checkCoeur.GetVeilleStock(dureeStock));
+            Assert.AreEqual(Convert.ToDateTime("2015-01-08"), managementHelper.GetLastWorkingDay(dateReference));
+            Assert.AreEqual(Convert.ToDateTime("2015-01-07"), managementHelper.GetYesterdayWorkingDay(dateReference));
+            Assert.AreEqual(Convert.ToDateTime("2014-12-31"), managementHelper.GetStartInterval(dateReference, dureeStock));
         }
 
         [TestMethod]
         public void TestCalculDate1JourFerieCas2()
         {
-            var dureeStock = 7;
-            var checkCoeur = Utilitaires.CreateDateManagementBLL(Convert.ToDateTime(Convert.ToDateTime("2015-01-07")));
+            var dureeStock = new TimeSpan(-7, 0, 0, 0);
+            var dateReference = new DateTime(2015, 01, 07);
+            var managementHelper = UtilsHelper.CreateDateManagementHelper();
 
-            Assert.AreEqual(Convert.ToDateTime("2015-01-07"), checkCoeur.GetJourFlux());
-            Assert.AreEqual(Convert.ToDateTime("2015-01-07"), checkCoeur.GetJourStock());
-            Assert.AreEqual(Convert.ToDateTime("2015-01-06"), checkCoeur.GetVeilleFlux());
-            Assert.AreEqual(Convert.ToDateTime("2014-12-29"), checkCoeur.GetVeilleStock(dureeStock));
+            Assert.AreEqual(Convert.ToDateTime("2015-01-07"), managementHelper.GetLastWorkingDay(dateReference));
+            Assert.AreEqual(Convert.ToDateTime("2015-01-06"), managementHelper.GetYesterdayWorkingDay(dateReference));
+            Assert.AreEqual(Convert.ToDateTime("2014-12-30"), managementHelper.GetStartInterval(dateReference, dureeStock));
         }
 
         [TestMethod]
         public void TestCalculDate1JourFerieCas3()
         {
-            var dureeStock = 7;
-            var checkCoeur = Utilitaires.CreateDateManagementBLL(Convert.ToDateTime(Convert.ToDateTime("2015-12-28")));
+            var dureeStock = new TimeSpan(-7, 0, 0, 0);
+            var dateReference = new DateTime(2015, 12, 28);
+            var managementHelper = UtilsHelper.CreateDateManagementHelper();
 
-            Assert.AreEqual(Convert.ToDateTime("2015-12-28"), checkCoeur.GetJourFlux());
-            Assert.AreEqual(Convert.ToDateTime("2015-12-28"), checkCoeur.GetJourStock());
-            Assert.AreEqual(Convert.ToDateTime("2015-12-24"), checkCoeur.GetVeilleFlux());
-            Assert.AreEqual(Convert.ToDateTime("2015-12-17"), checkCoeur.GetVeilleStock(dureeStock));
+            Assert.AreEqual(Convert.ToDateTime("2015-12-28"), managementHelper.GetLastWorkingDay(dateReference));
+            Assert.AreEqual(Convert.ToDateTime("2015-12-24"), managementHelper.GetYesterdayWorkingDay(dateReference));
+            Assert.AreEqual(Convert.ToDateTime("2015-12-18"), managementHelper.GetStartInterval(dateReference, dureeStock));
         }
 
         [TestMethod]
         public void TestCalculDate1JourFerieCas4()
         {
-            var dureeStock = 7;
-            var checkCoeur = Utilitaires.CreateDateManagementBLL(Convert.ToDateTime(Convert.ToDateTime("2015-12-29")));
+            var dureeStock = new TimeSpan(-7, 0, 0, 0);
+            var dateReference = new DateTime(2015, 12, 29);
+            var managementHelper = UtilsHelper.CreateDateManagementHelper();
 
-            Assert.AreEqual(Convert.ToDateTime("2015-12-29"), checkCoeur.GetJourFlux());
-            Assert.AreEqual(Convert.ToDateTime("2015-12-29"), checkCoeur.GetJourStock());
-            Assert.AreEqual(Convert.ToDateTime("2015-12-28"), checkCoeur.GetVeilleFlux());
-            Assert.AreEqual(Convert.ToDateTime("2015-12-18"), checkCoeur.GetVeilleStock(dureeStock));
+            Assert.AreEqual(Convert.ToDateTime("2015-12-29"), managementHelper.GetLastWorkingDay(dateReference));
+            Assert.AreEqual(Convert.ToDateTime("2015-12-28"), managementHelper.GetYesterdayWorkingDay(dateReference));
+            Assert.AreEqual(Convert.ToDateTime("2015-12-21"), managementHelper.GetStartInterval(dateReference, dureeStock));
         }
 
         [TestMethod]
         public void TestCalculDate2JoursFeriesCas1()
         {
-            var dureeStock = 7;
-            var checkCoeur = Utilitaires.CreateDateManagementBLL(Convert.ToDateTime(Convert.ToDateTime("2014-12-30")));
+            var dureeStock = new TimeSpan(-7, 0, 0, 0);
+            var dateReference = new DateTime(2014, 12, 30);
+            var managementHelper = UtilsHelper.CreateDateManagementHelper();
 
-            Assert.AreEqual(Convert.ToDateTime("2014-12-30"), checkCoeur.GetJourFlux());
-            Assert.AreEqual(Convert.ToDateTime("2014-12-30"), checkCoeur.GetJourStock());
-            Assert.AreEqual(Convert.ToDateTime("2014-12-29"), checkCoeur.GetVeilleFlux());
-            Assert.AreEqual(Convert.ToDateTime("2014-12-22"), checkCoeur.GetVeilleStock(dureeStock));
+            Assert.AreEqual(Convert.ToDateTime("2014-12-30"), managementHelper.GetLastWorkingDay(dateReference));
+            Assert.AreEqual(Convert.ToDateTime("2014-12-29"), managementHelper.GetYesterdayWorkingDay(dateReference));
+            Assert.AreEqual(Convert.ToDateTime("2014-12-22"), managementHelper.GetStartInterval(dateReference, dureeStock));
         }
 
         [TestMethod]
         public void TestCalculDate2JoursFeriesCas2()
         {
-            var dureeStock = 7;
-            var checkCoeur = Utilitaires.CreateDateManagementBLL(Convert.ToDateTime(Convert.ToDateTime("2016-01-04")));
+            var dureeStock = new TimeSpan(-7, 0, 0, 0);
+            var dateReference = new DateTime(2016, 01, 04);
+            var managementHelper = UtilsHelper.CreateDateManagementHelper();
 
-            Assert.AreEqual(Convert.ToDateTime("2016-01-04"), checkCoeur.GetJourFlux());
-            Assert.AreEqual(Convert.ToDateTime("2016-01-04"), checkCoeur.GetJourStock());
-            Assert.AreEqual(Convert.ToDateTime("2015-12-31"), checkCoeur.GetVeilleFlux());
-            Assert.AreEqual(Convert.ToDateTime("2015-12-23"), checkCoeur.GetVeilleStock(dureeStock));
+            Assert.AreEqual(Convert.ToDateTime("2016-01-04"), managementHelper.GetLastWorkingDay(dateReference));
+            Assert.AreEqual(Convert.ToDateTime("2015-12-31"), managementHelper.GetYesterdayWorkingDay(dateReference));
+            Assert.AreEqual(Convert.ToDateTime("2015-12-24"), managementHelper.GetStartInterval(dateReference, dureeStock));
         }
 
         [TestMethod]
         public void TestCalculDate3JourFerie()
         {
-            var dureeStock = 7;
-            var checkCoeur = Utilitaires.CreateDateManagementBLL(Convert.ToDateTime(Convert.ToDateTime("2015-01-02")));
+            var dureeStock = new TimeSpan(-7, 0, 0, 0);
+            var dateReference = new DateTime(2015, 01, 02);
+            var managementHelper = UtilsHelper.CreateDateManagementHelper();
 
-            Assert.AreEqual(Convert.ToDateTime("2015-01-02"), checkCoeur.GetJourFlux());
-            Assert.AreEqual(Convert.ToDateTime("2015-01-02"), checkCoeur.GetJourStock());
-            Assert.AreEqual(Convert.ToDateTime("2014-12-31"), checkCoeur.GetVeilleFlux());
-            Assert.AreEqual(Convert.ToDateTime("2014-12-24"), checkCoeur.GetVeilleStock(dureeStock));
+            Assert.AreEqual(Convert.ToDateTime("2015-01-02"), managementHelper.GetLastWorkingDay(dateReference));
+            Assert.AreEqual(Convert.ToDateTime("2014-12-31"), managementHelper.GetYesterdayWorkingDay(dateReference));
+            Assert.AreEqual(Convert.ToDateTime("2014-12-25"), managementHelper.GetStartInterval(dateReference, dureeStock));
         }
 
         [TestMethod]
         public void TestCalculDateAucunJourFerie()
         {
-            var dureeStock = 7;
-            var checkCoeur = Utilitaires.CreateDateManagementBLL(Convert.ToDateTime(Convert.ToDateTime("2015-01-13")));
+            var dureeStock = new TimeSpan(-7, 0, 0, 0);
+            var dateReference = new DateTime(2015, 01, 13);
+            var managementHelper = UtilsHelper.CreateDateManagementHelper();
 
-            Assert.AreEqual(Convert.ToDateTime("2015-01-13"), checkCoeur.GetJourFlux());
-            Assert.AreEqual(Convert.ToDateTime("2015-01-13"), checkCoeur.GetJourStock());
-            Assert.AreEqual(Convert.ToDateTime("2015-01-12"), checkCoeur.GetVeilleFlux());
-            Assert.AreEqual(Convert.ToDateTime("2015-01-05"), checkCoeur.GetVeilleStock(dureeStock));
+            Assert.AreEqual(Convert.ToDateTime("2015-01-13"), managementHelper.GetLastWorkingDay(dateReference));
+            Assert.AreEqual(Convert.ToDateTime("2015-01-12"), managementHelper.GetYesterdayWorkingDay(dateReference));
+            Assert.AreEqual(Convert.ToDateTime("2015-01-05"), managementHelper.GetStartInterval(dateReference, dureeStock));
         }
 
         [TestMethod]
         public void TestCalculDateNormal()
         {
-            var dureeStock = 7;
-            var checkCoeur = Utilitaires.CreateDateManagementBLL(Convert.ToDateTime(Convert.ToDateTime("2015-07-23")));
+            var dureeStock = new TimeSpan(-7, 0, 0, 0);
+            var dateReference = new DateTime(2015, 07, 23);
+            var managementHelper = UtilsHelper.CreateDateManagementHelper();
 
-            Assert.AreEqual(Convert.ToDateTime("2015-07-23"), checkCoeur.GetJourFlux());
-            Assert.AreEqual(Convert.ToDateTime("2015-07-23"), checkCoeur.GetJourStock());
-            Assert.AreEqual(Convert.ToDateTime("2015-07-22"), checkCoeur.GetVeilleFlux());
-            Assert.AreEqual(Convert.ToDateTime("2015-07-15"), checkCoeur.GetVeilleStock(dureeStock));
+            Assert.AreEqual(Convert.ToDateTime("2015-07-23"), managementHelper.GetLastWorkingDay(dateReference));
+            Assert.AreEqual(Convert.ToDateTime("2015-07-22"), managementHelper.GetYesterdayWorkingDay(dateReference));
+            Assert.AreEqual(Convert.ToDateTime("2015-07-15"), managementHelper.GetStartInterval(dateReference, dureeStock));
         }
 
         [TestMethod]
         public void TestCalculDateWeekEnd()
         {
-            var dureeStock = 7;
-            var checkCoeur = Utilitaires.CreateDateManagementBLL(Convert.ToDateTime(Convert.ToDateTime("2015-01-12")));
+            var dureeStock = new TimeSpan(-7, 0, 0, 0);
+            var dateReference = new DateTime(2015, 01, 12);
+            var managementHelper = UtilsHelper.CreateDateManagementHelper();
 
-            Assert.AreEqual(Convert.ToDateTime("2015-01-12"), checkCoeur.GetJourFlux());
-            Assert.AreEqual(Convert.ToDateTime("2015-01-12"), checkCoeur.GetJourStock());
-            Assert.AreEqual(Convert.ToDateTime("2015-01-09"), checkCoeur.GetVeilleFlux());
-            Assert.AreEqual(Convert.ToDateTime("2015-01-02"), checkCoeur.GetVeilleStock(dureeStock));
+            Assert.AreEqual(Convert.ToDateTime("2015-01-12"), managementHelper.GetLastWorkingDay(dateReference));
+            Assert.AreEqual(Convert.ToDateTime("2015-01-09"), managementHelper.GetYesterdayWorkingDay(dateReference));
+            Assert.AreEqual(Convert.ToDateTime("2015-01-02"), managementHelper.GetStartInterval(dateReference, dureeStock));
         }
 
         [TestMethod]
         public void TestCalculLendemainJourFeriePuisWeekend()
         {
-            var checkCoeur = Utilitaires.CreateDateManagementBLL(Convert.ToDateTime(Convert.ToDateTime("2015-04-30")));
+            var dateReference = new DateTime(2015, 04, 30);
+            var managementHelper = UtilsHelper.CreateDateManagementHelper();
 
-            Assert.AreEqual(Convert.ToDateTime("2015-05-04"), checkCoeur.GetLendemain(Convert.ToDateTime("2015-04-30")));
+            Assert.AreEqual(Convert.ToDateTime("2015-05-04"), managementHelper.GetTomorrowWorkingDay(Convert.ToDateTime("2015-04-30")));
         }
 
         [TestMethod]
         public void TestCalculLendemainSemaine()
         {
-            var checkCoeur = Utilitaires.CreateDateManagementBLL(Convert.ToDateTime(Convert.ToDateTime("2015-08-11")));
+            var dateReference = new DateTime(2015, 08, 11);
+            var managementHelper = UtilsHelper.CreateDateManagementHelper();
 
-            Assert.AreEqual(Convert.ToDateTime("2015-08-12"), checkCoeur.GetLendemain(Convert.ToDateTime("2015-08-11")));
+            Assert.AreEqual(Convert.ToDateTime("2015-08-12"), managementHelper.GetTomorrowWorkingDay(Convert.ToDateTime("2015-08-11")));
         }
 
         [TestMethod]
         public void TestCalculLendemainSemaineJourFerie()
         {
-            var checkCoeur = Utilitaires.CreateDateManagementBLL(Convert.ToDateTime(Convert.ToDateTime("2014-12-31")));
+            var dateReference = new DateTime(2014, 12, 31);
+            var managementHelper = UtilsHelper.CreateDateManagementHelper();
 
-            Assert.AreEqual(Convert.ToDateTime("2015-01-02"), checkCoeur.GetLendemain(Convert.ToDateTime("2014-12-31")));
+            Assert.AreEqual(Convert.ToDateTime("2015-01-02"), managementHelper.GetTomorrowWorkingDay(Convert.ToDateTime("2014-12-31")));
         }
 
         [TestMethod]
         public void TestCalculLendemainWeekend()
         {
-            var checkCoeur = Utilitaires.CreateDateManagementBLL(Convert.ToDateTime(Convert.ToDateTime("2015-08-11")));
+            var dateReference = new DateTime(2015, 08, 11);
+            var managementHelper = UtilsHelper.CreateDateManagementHelper();
 
-            Assert.AreEqual(Convert.ToDateTime("2015-08-17"), checkCoeur.GetLendemain(Convert.ToDateTime("2015-08-14")));
+            Assert.AreEqual(Convert.ToDateTime("2015-08-17"), managementHelper.GetTomorrowWorkingDay(Convert.ToDateTime("2015-08-14")));
         }
 
         [TestMethod]
         public void TestCalculLendemainWeekendPuisJourFerie()
         {
-            var checkCoeur = Utilitaires.CreateDateManagementBLL(Convert.ToDateTime(Convert.ToDateTime("2015-04-03")));
+            var dateReference = new DateTime(2015, 04, 03);
+            var managementHelper = UtilsHelper.CreateDateManagementHelper();
 
-            Assert.AreEqual(Convert.ToDateTime("2015-04-07"), checkCoeur.GetLendemain(Convert.ToDateTime("2015-04-03")));
+            Assert.AreEqual(Convert.ToDateTime("2015-04-07"), managementHelper.GetTomorrowWorkingDay(Convert.ToDateTime("2015-04-03")));
         }
 
         [TestMethod]
         public void TestCalculNbJoursUnAnDimanche()
         {
-            var checkCoeur = Utilitaires.CreateDateManagementBLL(Convert.ToDateTime(Convert.ToDateTime("2014-11-22")));
+            var dateReference = new DateTime(2014, 11, 22);
+            var managementHelper = UtilsHelper.CreateDateManagementHelper();
 
             // Le 22-11-15 est un dimanche donc 365+1
-            Assert.AreEqual(366.00, checkCoeur.GetNbJoursAvantOuvreUnAn());
+            Assert.AreEqual(366.00, managementHelper.GetNextWorkingDayInOneYear(dateReference));
         }
 
         [TestMethod]
         public void TestCalculNbJoursUnAnFerie()
         {
-            var checkCoeur = Utilitaires.CreateDateManagementBLL(Convert.ToDateTime(Convert.ToDateTime("2015-03-28")));
+            var dateReference = new DateTime(2015, 03, 28);
+            var managementHelper = UtilsHelper.CreateDateManagementHelper();
 
             // Le 28-03-2016 est ferié donc 366+1
-            Assert.AreEqual(367.00, checkCoeur.GetNbJoursAvantOuvreUnAn());
+            Assert.AreEqual(367.00, managementHelper.GetNextWorkingDayInOneYear(dateReference));
         }
 
         [TestMethod]
         public void TestCalculNbJoursUnAnSamedi()
         {
-            var checkCoeur = Utilitaires.CreateDateManagementBLL(Convert.ToDateTime(Convert.ToDateTime("2014-11-21")));
+            var dateReference = new DateTime(2014, 11, 21);
+            var managementHelper = UtilsHelper.CreateDateManagementHelper();
 
             // Le 21-11-15 est un samedi donc 365+2
-            Assert.AreEqual(367.00, checkCoeur.GetNbJoursAvantOuvreUnAn());
+            Assert.AreEqual(367.00, managementHelper.GetNextWorkingDayInOneYear(dateReference));
         }
     }
 }
