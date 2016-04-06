@@ -4,6 +4,9 @@ using System.Linq;
 
 namespace DateManagement
 {
+    /// <summary>
+    /// Helper into managing Working Days
+    /// </summary>
     public class WorkingDayHelper
     {
         public readonly List<DateTime> ListHolidays;
