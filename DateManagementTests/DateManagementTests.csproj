@@ -57,6 +57,7 @@
     <Compile Include="DateManagementHelperTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\UtilsHelper.cs" />
+    <Compile Include="WorkingDayHelperTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DateManagement\DateManagement.csproj">

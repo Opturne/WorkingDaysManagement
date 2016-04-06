@@ -16,9 +16,11 @@ namespace DateManagement
             ListHolidays = new List<DateTime>();
         }
 
-        public WorkingDayHelper(List<DateTime> listHolidays)
+        public WorkingDayHelper(IEnumerable<DateTime> listHolidays)
         {
-            ListHolidays = listHolidays;
+            if (listHolidays == null)
+                throw new ArgumentNullException(nameof(listHolidays));
+            ListHolidays = listHolidays.ToList();
         }
 
         /// <summary>
