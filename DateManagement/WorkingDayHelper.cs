@@ -8,6 +8,11 @@ namespace DateManagement
     {
         public readonly List<DateTime> ListHolidays;
 
+        public WorkingDayHelper()
+        {
+            ListHolidays = new List<DateTime>();
+        }
+
         public WorkingDayHelper(List<DateTime> listHolidays)
         {
             ListHolidays = listHolidays;
@@ -44,7 +49,7 @@ namespace DateManagement
         }
 
         /// <summary>
-        /// Retourne la liste des dates du stock (hors férié et week-end)
+        /// Return the DateTime list of the working days during the span
         /// </summary>
         /// <returns></returns>
         public List<DateTime> GetSpanDates(DateTime dateReference, TimeSpan span)
@@ -142,7 +147,7 @@ namespace DateManagement
         }
 
         /// <summary>
-        /// Is dateReference a holiday
+        /// Is dateReference a holiday.
         /// </summary>
         /// <param name="dateReference"></param>
         /// <returns></returns>
