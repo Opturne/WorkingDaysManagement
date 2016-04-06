@@ -14,9 +14,9 @@ namespace DateManagement.Tests
             var dateReference = new DateTime(2015, 01, 08);
             var managementHelper = UtilsHelper.CreateDateManagementHelper();
 
-            Assert.AreEqual(Convert.ToDateTime("2015-01-08"), managementHelper.GetLastWorkingDay(dateReference));
-            Assert.AreEqual(Convert.ToDateTime("2015-01-07"), managementHelper.GetYesterdayWorkingDay(dateReference));
-            Assert.AreEqual(Convert.ToDateTime("2014-12-31"), managementHelper.GetStartInterval(dateReference, dureeStock));
+            Assert.AreEqual(Convert.ToDateTime("2015-01-08"), managementHelper.GetLast(dateReference));
+            Assert.AreEqual(Convert.ToDateTime("2015-01-07"), managementHelper.GetYesterday(dateReference));
+            Assert.AreEqual(Convert.ToDateTime("2014-12-31"), managementHelper.GetSpanStart(dateReference, dureeStock));
         }
 
         [TestMethod]
@@ -26,9 +26,9 @@ namespace DateManagement.Tests
             var dateReference = new DateTime(2015, 01, 07);
             var managementHelper = UtilsHelper.CreateDateManagementHelper();
 
-            Assert.AreEqual(Convert.ToDateTime("2015-01-07"), managementHelper.GetLastWorkingDay(dateReference));
-            Assert.AreEqual(Convert.ToDateTime("2015-01-06"), managementHelper.GetYesterdayWorkingDay(dateReference));
-            Assert.AreEqual(Convert.ToDateTime("2014-12-30"), managementHelper.GetStartInterval(dateReference, dureeStock));
+            Assert.AreEqual(Convert.ToDateTime("2015-01-07"), managementHelper.GetLast(dateReference));
+            Assert.AreEqual(Convert.ToDateTime("2015-01-06"), managementHelper.GetYesterday(dateReference));
+            Assert.AreEqual(Convert.ToDateTime("2014-12-30"), managementHelper.GetSpanStart(dateReference, dureeStock));
         }
 
         [TestMethod]
@@ -38,9 +38,9 @@ namespace DateManagement.Tests
             var dateReference = new DateTime(2015, 12, 28);
             var managementHelper = UtilsHelper.CreateDateManagementHelper();
 
-            Assert.AreEqual(Convert.ToDateTime("2015-12-28"), managementHelper.GetLastWorkingDay(dateReference));
-            Assert.AreEqual(Convert.ToDateTime("2015-12-24"), managementHelper.GetYesterdayWorkingDay(dateReference));
-            Assert.AreEqual(Convert.ToDateTime("2015-12-18"), managementHelper.GetStartInterval(dateReference, dureeStock));
+            Assert.AreEqual(Convert.ToDateTime("2015-12-28"), managementHelper.GetLast(dateReference));
+            Assert.AreEqual(Convert.ToDateTime("2015-12-24"), managementHelper.GetYesterday(dateReference));
+            Assert.AreEqual(Convert.ToDateTime("2015-12-18"), managementHelper.GetSpanStart(dateReference, dureeStock));
         }
 
         [TestMethod]
@@ -50,9 +50,9 @@ namespace DateManagement.Tests
             var dateReference = new DateTime(2015, 12, 29);
             var managementHelper = UtilsHelper.CreateDateManagementHelper();
 
-            Assert.AreEqual(Convert.ToDateTime("2015-12-29"), managementHelper.GetLastWorkingDay(dateReference));
-            Assert.AreEqual(Convert.ToDateTime("2015-12-28"), managementHelper.GetYesterdayWorkingDay(dateReference));
-            Assert.AreEqual(Convert.ToDateTime("2015-12-21"), managementHelper.GetStartInterval(dateReference, dureeStock));
+            Assert.AreEqual(Convert.ToDateTime("2015-12-29"), managementHelper.GetLast(dateReference));
+            Assert.AreEqual(Convert.ToDateTime("2015-12-28"), managementHelper.GetYesterday(dateReference));
+            Assert.AreEqual(Convert.ToDateTime("2015-12-21"), managementHelper.GetSpanStart(dateReference, dureeStock));
         }
 
         [TestMethod]
@@ -62,9 +62,9 @@ namespace DateManagement.Tests
             var dateReference = new DateTime(2014, 12, 30);
             var managementHelper = UtilsHelper.CreateDateManagementHelper();
 
-            Assert.AreEqual(Convert.ToDateTime("2014-12-30"), managementHelper.GetLastWorkingDay(dateReference));
-            Assert.AreEqual(Convert.ToDateTime("2014-12-29"), managementHelper.GetYesterdayWorkingDay(dateReference));
-            Assert.AreEqual(Convert.ToDateTime("2014-12-22"), managementHelper.GetStartInterval(dateReference, dureeStock));
+            Assert.AreEqual(Convert.ToDateTime("2014-12-30"), managementHelper.GetLast(dateReference));
+            Assert.AreEqual(Convert.ToDateTime("2014-12-29"), managementHelper.GetYesterday(dateReference));
+            Assert.AreEqual(Convert.ToDateTime("2014-12-22"), managementHelper.GetSpanStart(dateReference, dureeStock));
         }
 
         [TestMethod]
@@ -74,9 +74,9 @@ namespace DateManagement.Tests
             var dateReference = new DateTime(2016, 01, 04);
             var managementHelper = UtilsHelper.CreateDateManagementHelper();
 
-            Assert.AreEqual(Convert.ToDateTime("2016-01-04"), managementHelper.GetLastWorkingDay(dateReference));
-            Assert.AreEqual(Convert.ToDateTime("2015-12-31"), managementHelper.GetYesterdayWorkingDay(dateReference));
-            Assert.AreEqual(Convert.ToDateTime("2015-12-24"), managementHelper.GetStartInterval(dateReference, dureeStock));
+            Assert.AreEqual(Convert.ToDateTime("2016-01-04"), managementHelper.GetLast(dateReference));
+            Assert.AreEqual(Convert.ToDateTime("2015-12-31"), managementHelper.GetYesterday(dateReference));
+            Assert.AreEqual(Convert.ToDateTime("2015-12-24"), managementHelper.GetSpanStart(dateReference, dureeStock));
         }
 
         [TestMethod]
@@ -86,9 +86,9 @@ namespace DateManagement.Tests
             var dateReference = new DateTime(2015, 01, 02);
             var managementHelper = UtilsHelper.CreateDateManagementHelper();
 
-            Assert.AreEqual(Convert.ToDateTime("2015-01-02"), managementHelper.GetLastWorkingDay(dateReference));
-            Assert.AreEqual(Convert.ToDateTime("2014-12-31"), managementHelper.GetYesterdayWorkingDay(dateReference));
-            Assert.AreEqual(Convert.ToDateTime("2014-12-25"), managementHelper.GetStartInterval(dateReference, dureeStock));
+            Assert.AreEqual(Convert.ToDateTime("2015-01-02"), managementHelper.GetLast(dateReference));
+            Assert.AreEqual(Convert.ToDateTime("2014-12-31"), managementHelper.GetYesterday(dateReference));
+            Assert.AreEqual(Convert.ToDateTime("2014-12-25"), managementHelper.GetSpanStart(dateReference, dureeStock));
         }
 
         [TestMethod]
@@ -98,9 +98,9 @@ namespace DateManagement.Tests
             var dateReference = new DateTime(2015, 01, 13);
             var managementHelper = UtilsHelper.CreateDateManagementHelper();
 
-            Assert.AreEqual(Convert.ToDateTime("2015-01-13"), managementHelper.GetLastWorkingDay(dateReference));
-            Assert.AreEqual(Convert.ToDateTime("2015-01-12"), managementHelper.GetYesterdayWorkingDay(dateReference));
-            Assert.AreEqual(Convert.ToDateTime("2015-01-05"), managementHelper.GetStartInterval(dateReference, dureeStock));
+            Assert.AreEqual(Convert.ToDateTime("2015-01-13"), managementHelper.GetLast(dateReference));
+            Assert.AreEqual(Convert.ToDateTime("2015-01-12"), managementHelper.GetYesterday(dateReference));
+            Assert.AreEqual(Convert.ToDateTime("2015-01-05"), managementHelper.GetSpanStart(dateReference, dureeStock));
         }
 
         [TestMethod]
@@ -110,9 +110,9 @@ namespace DateManagement.Tests
             var dateReference = new DateTime(2015, 07, 23);
             var managementHelper = UtilsHelper.CreateDateManagementHelper();
 
-            Assert.AreEqual(Convert.ToDateTime("2015-07-23"), managementHelper.GetLastWorkingDay(dateReference));
-            Assert.AreEqual(Convert.ToDateTime("2015-07-22"), managementHelper.GetYesterdayWorkingDay(dateReference));
-            Assert.AreEqual(Convert.ToDateTime("2015-07-15"), managementHelper.GetStartInterval(dateReference, dureeStock));
+            Assert.AreEqual(Convert.ToDateTime("2015-07-23"), managementHelper.GetLast(dateReference));
+            Assert.AreEqual(Convert.ToDateTime("2015-07-22"), managementHelper.GetYesterday(dateReference));
+            Assert.AreEqual(Convert.ToDateTime("2015-07-15"), managementHelper.GetSpanStart(dateReference, dureeStock));
         }
 
         [TestMethod]
@@ -122,9 +122,9 @@ namespace DateManagement.Tests
             var dateReference = new DateTime(2015, 01, 12);
             var managementHelper = UtilsHelper.CreateDateManagementHelper();
 
-            Assert.AreEqual(Convert.ToDateTime("2015-01-12"), managementHelper.GetLastWorkingDay(dateReference));
-            Assert.AreEqual(Convert.ToDateTime("2015-01-09"), managementHelper.GetYesterdayWorkingDay(dateReference));
-            Assert.AreEqual(Convert.ToDateTime("2015-01-02"), managementHelper.GetStartInterval(dateReference, dureeStock));
+            Assert.AreEqual(Convert.ToDateTime("2015-01-12"), managementHelper.GetLast(dateReference));
+            Assert.AreEqual(Convert.ToDateTime("2015-01-09"), managementHelper.GetYesterday(dateReference));
+            Assert.AreEqual(Convert.ToDateTime("2015-01-02"), managementHelper.GetSpanStart(dateReference, dureeStock));
         }
 
         [TestMethod]
@@ -133,7 +133,7 @@ namespace DateManagement.Tests
             var dateReference = new DateTime(2015, 04, 30);
             var managementHelper = UtilsHelper.CreateDateManagementHelper();
 
-            Assert.AreEqual(Convert.ToDateTime("2015-05-04"), managementHelper.GetTomorrowWorkingDay(Convert.ToDateTime("2015-04-30")));
+            Assert.AreEqual(Convert.ToDateTime("2015-05-04"), managementHelper.GetTomorrow(Convert.ToDateTime("2015-04-30")));
         }
 
         [TestMethod]
@@ -142,7 +142,7 @@ namespace DateManagement.Tests
             var dateReference = new DateTime(2015, 08, 11);
             var managementHelper = UtilsHelper.CreateDateManagementHelper();
 
-            Assert.AreEqual(Convert.ToDateTime("2015-08-12"), managementHelper.GetTomorrowWorkingDay(Convert.ToDateTime("2015-08-11")));
+            Assert.AreEqual(Convert.ToDateTime("2015-08-12"), managementHelper.GetTomorrow(Convert.ToDateTime("2015-08-11")));
         }
 
         [TestMethod]
@@ -151,7 +151,7 @@ namespace DateManagement.Tests
             var dateReference = new DateTime(2014, 12, 31);
             var managementHelper = UtilsHelper.CreateDateManagementHelper();
 
-            Assert.AreEqual(Convert.ToDateTime("2015-01-02"), managementHelper.GetTomorrowWorkingDay(Convert.ToDateTime("2014-12-31")));
+            Assert.AreEqual(Convert.ToDateTime("2015-01-02"), managementHelper.GetTomorrow(Convert.ToDateTime("2014-12-31")));
         }
 
         [TestMethod]
@@ -160,7 +160,7 @@ namespace DateManagement.Tests
             var dateReference = new DateTime(2015, 08, 11);
             var managementHelper = UtilsHelper.CreateDateManagementHelper();
 
-            Assert.AreEqual(Convert.ToDateTime("2015-08-17"), managementHelper.GetTomorrowWorkingDay(Convert.ToDateTime("2015-08-14")));
+            Assert.AreEqual(Convert.ToDateTime("2015-08-17"), managementHelper.GetTomorrow(Convert.ToDateTime("2015-08-14")));
         }
 
         [TestMethod]
@@ -169,7 +169,7 @@ namespace DateManagement.Tests
             var dateReference = new DateTime(2015, 04, 03);
             var managementHelper = UtilsHelper.CreateDateManagementHelper();
 
-            Assert.AreEqual(Convert.ToDateTime("2015-04-07"), managementHelper.GetTomorrowWorkingDay(Convert.ToDateTime("2015-04-03")));
+            Assert.AreEqual(Convert.ToDateTime("2015-04-07"), managementHelper.GetTomorrow(Convert.ToDateTime("2015-04-03")));
         }
 
         [TestMethod]
@@ -179,7 +179,7 @@ namespace DateManagement.Tests
             var managementHelper = UtilsHelper.CreateDateManagementHelper();
 
             // Le 22-11-15 est un dimanche donc 365+1
-            Assert.AreEqual(366.00, managementHelper.GetNextWorkingDayInOneYear(dateReference));
+            Assert.AreEqual(366.00, managementHelper.GetSpanDays(dateReference, dateReference.AddYears(1) - dateReference));
         }
 
         [TestMethod]
@@ -189,7 +189,7 @@ namespace DateManagement.Tests
             var managementHelper = UtilsHelper.CreateDateManagementHelper();
 
             // Le 28-03-2016 est ferié donc 366+1
-            Assert.AreEqual(367.00, managementHelper.GetNextWorkingDayInOneYear(dateReference));
+            Assert.AreEqual(367.00, managementHelper.GetSpanDays(dateReference, dateReference.AddYears(1) - dateReference));
         }
 
         [TestMethod]
@@ -199,7 +199,7 @@ namespace DateManagement.Tests
             var managementHelper = UtilsHelper.CreateDateManagementHelper();
 
             // Le 21-11-15 est un samedi donc 365+2
-            Assert.AreEqual(367.00, managementHelper.GetNextWorkingDayInOneYear(dateReference));
+            Assert.AreEqual(367.00, managementHelper.GetSpanDays(dateReference, dateReference.AddYears(1) - dateReference));
         }
     }
 }

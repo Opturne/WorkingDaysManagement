@@ -19,9 +19,9 @@ namespace DateManagementTests.Utils
             new DateTime(2016,12,26)
         };
 
-        public static DateManagementHelper CreateDateManagementHelper()
+        public static WorkingDayHelper CreateDateManagementHelper()
         {
-            return new DateManagementHelper(listJourFeries);
+            return new WorkingDayHelper(listJourFeries);
         }
     }
 }
