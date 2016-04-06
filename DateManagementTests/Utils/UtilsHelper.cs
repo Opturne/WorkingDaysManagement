@@ -8,6 +8,7 @@ namespace DateManagementTests.Utils
     {
         public static List<DateTime> listJourFeries = new List<DateTime>
         {
+            new DateTime(2014,12,25),
             new DateTime(2015,01,01),
             new DateTime(2015,04,03),
             new DateTime(2015,04,06),

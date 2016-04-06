@@ -9,3 +9,5 @@
 /DateManagementTests/obj/Debug
 /DateManagementTests/DateManagementTests.csproj.vspscc
 *.vssscc
+/DateManagement.NuGet.Packager
+*.coverage

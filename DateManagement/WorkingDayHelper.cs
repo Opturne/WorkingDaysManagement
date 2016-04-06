@@ -30,7 +30,7 @@ namespace DateManagement
         {
             var lastWorkingDay = dateReference;
 
-            while (IsHoliday(lastWorkingDay) || lastWorkingDay.DayOfWeek == DayOfWeek.Saturday || lastWorkingDay.DayOfWeek == DayOfWeek.Sunday)
+            while (!IsWorkingDay(lastWorkingDay))
             {
                 lastWorkingDay = lastWorkingDay.AddDays(-1);
             }
@@ -45,7 +45,7 @@ namespace DateManagement
         {
             var nextWorkingDay = dateReference;
 
-            while (IsHoliday(nextWorkingDay) || nextWorkingDay.DayOfWeek == DayOfWeek.Saturday || nextWorkingDay.DayOfWeek == DayOfWeek.Sunday)
+            while (!IsWorkingDay(nextWorkingDay))
             {
                 nextWorkingDay = nextWorkingDay.AddDays(1);
             }
@@ -63,7 +63,7 @@ namespace DateManagement
 
             for (var date = GetSpanStart(dateReference, span); date <= GetYesterday(dateReference); date = date.AddDays(1))
             {
-                if (!IsHoliday(date) && date.DayOfWeek != DayOfWeek.Saturday && date.DayOfWeek != DayOfWeek.Sunday)
+                if (IsWorkingDay(date))
                     listDate.Add(date);
             }
             return listDate;
@@ -99,7 +99,7 @@ namespace DateManagement
                 minDate = dateReference.Add(span);
             }
 
-            return GetLast(maxDate);
+            return GetNext(maxDate);
         }
 
         /// <summary>
@@ -121,19 +121,49 @@ namespace DateManagement
                 minDate = dateReference.Add(span);
             }
 
-            return GetYesterday(minDate);
+            return GetLast(minDate);
+        }
+
+        public DateTime PastWorkingDays(DateTime dateReference, int days)
+        {
+            if (days < 0)
+                throw new ArgumentOutOfRangeException(nameof(days));
+
+            var dayResult = dateReference;
+
+            for (var i = 0; i < days; i++)
+            {
+                dayResult = GetYesterday(dayResult);
+            }
+
+            return dayResult;
+        }
+
+        public DateTime FuturWorkingDays(DateTime dateReference, int days)
+        {
+            if (days < 0)
+                throw new ArgumentOutOfRangeException(nameof(days));
+
+            var dayResult = dateReference;
+
+            for (var i = 0; i < days; i++)
+            {
+                dayResult = GetTomorrow(dayResult);
+            }
+
+            return dayResult;
         }
 
         /// <summary>
         /// Return the next working day after dateReference
         /// </summary>
-        /// <param name="date"></param>
+        /// <param name="dateReference"></param>
         /// <returns></returns>
-        public DateTime GetTomorrow(DateTime date)
+        public DateTime GetTomorrow(DateTime dateReference)
         {
-            var tomorrow = date.DayOfWeek == DayOfWeek.Friday
-                ? date.AddDays(3)
-                : date.AddDays(1);
+            var tomorrow = dateReference.DayOfWeek == DayOfWeek.Friday
+                ? dateReference.AddDays(3)
+                : dateReference.AddDays(1);
 
             return GetNext(tomorrow);
         }
@@ -156,9 +186,11 @@ namespace DateManagement
         /// </summary>
         /// <param name="dateReference"></param>
         /// <returns></returns>
-        public bool IsHoliday(DateTime dateReference)
+        public bool IsWorkingDay(DateTime dateReference)
         {
-            return ListHolidays.Any(row => row == dateReference);
+            return ListHolidays.All(row => row != dateReference)
+                && dateReference.DayOfWeek != DayOfWeek.Saturday
+                && dateReference.DayOfWeek != DayOfWeek.Sunday;
         }
     }
 }

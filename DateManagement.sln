@@ -25,16 +25,4 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 3
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = http://msdftfs02:8080/tfs/defaultcollection
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = DateManagement\\DateManagement.csproj
-		SccProjectName1 = DateManagement
-		SccLocalPath1 = DateManagement
-		SccProjectUniqueName2 = DateManagementTests\\DateManagementTests.csproj
-		SccProjectName2 = DateManagementTests
-		SccLocalPath2 = DateManagementTests
-	EndGlobalSection
 EndGlobal
