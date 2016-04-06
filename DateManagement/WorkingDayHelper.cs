@@ -54,18 +54,34 @@ namespace DateManagement
         }
 
         /// <summary>
-        /// Return the DateTime list of the working days during the span
+        /// Return the DateTime list of working days to the dateReference If days is negative, then
+        /// it's the days before instade of after
         /// </summary>
         /// <returns></returns>
-        public List<DateTime> GetSpanDates(DateTime dateReference, TimeSpan span)
+        public List<DateTime> GetSpanDates(DateTime dateReference, int days)
         {
             var listDate = new List<DateTime>();
 
-            for (var date = GetSpanStart(dateReference, span); date <= GetYesterday(dateReference); date = date.AddDays(1))
+            var dayTemp = dateReference;
+            listDate.Add(dayTemp);
+
+            if (days > 0)
             {
-                if (IsWorkingDay(date))
-                    listDate.Add(date);
+                for (var i = 0; i < days; i++)
+                {
+                    dayTemp = GetTomorrow(dayTemp);
+                    listDate.Add(dayTemp);
+                }
             }
+            else
+            {
+                for (var i = 0; i < -days; i++)
+                {
+                    dayTemp = GetYesterday(dayTemp);
+                    listDate.Add(dayTemp);
+                }
+            }
+
             return listDate;
         }
 
@@ -124,6 +140,12 @@ namespace DateManagement
             return GetLast(minDate);
         }
 
+        /// <summary>
+        /// Get the date x working days in the past
+        /// </summary>
+        /// <param name="dateReference"></param>
+        /// <param name="days"></param>
+        /// <returns></returns>
         public DateTime PastWorkingDays(DateTime dateReference, int days)
         {
             if (days < 0)
@@ -139,6 +161,12 @@ namespace DateManagement
             return dayResult;
         }
 
+        /// <summary>
+        /// Get the date x working days in the future
+        /// </summary>
+        /// <param name="dateReference"></param>
+        /// <param name="days"></param>
+        /// <returns></returns>
         public DateTime FuturWorkingDays(DateTime dateReference, int days)
         {
             if (days < 0)
