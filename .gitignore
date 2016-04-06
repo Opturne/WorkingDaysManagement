@@ -3,3 +3,9 @@
 ################################################################################
 
 /DateManagement/obj/Debug
+/DateManagement/bin/Debug
+/DateManagement/.vs/DateManagement/v14
+/DateManagementTests/bin/Debug
+/DateManagementTests/obj/Debug
+/DateManagementTests/DateManagementTests.csproj.vspscc
+*.vssscc
