@@ -1,5 +1,4 @@
-﻿using DateManagement;
-using DateManagementTests.Utils;
+﻿using DateManagementTests.Utils;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -27,9 +26,16 @@ namespace DateManagement.Tests
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void WorkingDayHelperNullTest()
+        public void WorkingDayHelperWeekEndNullTest()
         {
-            var helper = new WorkingDayHelper(null);
+            var helper = new WorkingDayHelper(new List<DateTime>(), null);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void WorkingDayHelperHolidayNullTest()
+        {
+            var helper = new WorkingDayHelper(null, new List<DayOfWeek>());
         }
 
         [TestMethod]
@@ -85,7 +91,7 @@ namespace DateManagement.Tests
         }
 
         [TestMethod]
-        public void Date2JoursFeriesCas1()
+        public void Date2HolidaysCas1()
         {
             var dureeStock = new TimeSpan(-7, 0, 0, 0);
             var dateReference = new DateTime(2014, 12, 30);
@@ -98,7 +104,7 @@ namespace DateManagement.Tests
         }
 
         [TestMethod]
-        public void Date2JoursFeriesCas2()
+        public void Date2HolidaysCas2()
         {
             var dureeStock = new TimeSpan(-7, 0, 0, 0);
             var dateReference = new DateTime(2016, 01, 04);

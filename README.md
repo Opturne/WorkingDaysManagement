@@ -2,34 +2,65 @@
 
 A library to manage working days and do simple operations with it.
 
-## Installation
+## Usage
+
+### Installation
 
 For now, the library is only available by branching and compile.
 
-## Usage
-
 ### Instantiation
 
-You can invoke it as is
+* You can invoke it as is
 
 ```csharp
 var helper = new WorkingDayHelper();
 ```
 
-Or with a list of Holidays
+* With a list of Holidays
 
 ```csharp
 var listHolidays = new List<DateTime>
-        {
-            new DateTime(2016,01,01),
-            new DateTime(2016,03,25),
-            new DateTime(2016,03,28),
-            new DateTime(2016,12,26)
-        };
+{
+    new DateTime(2016,01,01),
+    new DateTime(2016,03,25),
+    new DateTime(2016,03,28),
+    new DateTime(2016,12,26)
+};
 
- var helper = new WorkingDayHelper(listHolidays);
+var helper = new WorkingDayHelper(listHolidays);
 ```
-### Methods
+
+* With a list of off-work days of the week
+
+```csharp
+var listWeekEnd = new List<DayOfWeek>
+{
+    DayOfWeek.Sunday,
+    DayOfWeek.Monday
+}
+
+var helper = new WorkingDayHelper(listWeekEnd);
+```
+
+* Or both
+```csharp
+var listHolidays = new List<DateTime>
+{
+    new DateTime(2016,01,01),
+    new DateTime(2016,03,25),
+    new DateTime(2016,03,28),
+    new DateTime(2016,12,26)
+};
+
+var listWeekEnd = new List<DayOfWeek>
+{
+    DayOfWeek.Sunday,
+    DayOfWeek.Monday
+}
+
+var helper = new WorkingDayHelper(listHolidays, listWeekEnd);
+```
+## Methods
 
 ##### Is it a working day?
 ```csharp

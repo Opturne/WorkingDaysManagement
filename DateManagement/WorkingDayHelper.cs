@@ -5,22 +5,47 @@ using System.Linq;
 namespace DateManagement
 {
     /// <summary>
-    /// Helper into managing Working Days
+    /// Helper into managing working days
     /// </summary>
     public class WorkingDayHelper
     {
+        private static List<DateTime> _defaultHolidays = new List<DateTime>();
+
+        private static List<DayOfWeek> _defaultWeekEnd = new List<DayOfWeek>
+        {
+            DayOfWeek.Saturday,
+            DayOfWeek.Sunday
+        };
+
         public readonly List<DateTime> ListHolidays;
 
+        public readonly List<DayOfWeek> ListWeekEnd;
+
         public WorkingDayHelper()
+            : this(_defaultHolidays, _defaultWeekEnd)
         {
-            ListHolidays = new List<DateTime>();
         }
 
         public WorkingDayHelper(IEnumerable<DateTime> listHolidays)
+            : this(listHolidays, _defaultWeekEnd)
+        {
+        }
+
+        public WorkingDayHelper(IEnumerable<DayOfWeek> listWeekEnd)
+            : this(_defaultHolidays, listWeekEnd)
+        {
+        }
+
+        public WorkingDayHelper(IEnumerable<DateTime> listHolidays, IEnumerable<DayOfWeek> listWeekEnd)
         {
             if (listHolidays == null)
                 throw new ArgumentNullException(nameof(listHolidays));
+
+            if (listWeekEnd == null)
+                throw new ArgumentNullException(nameof(listWeekEnd));
+
             ListHolidays = listHolidays.ToList();
+            ListWeekEnd = listWeekEnd.ToList();
         }
 
         /// <summary>
@@ -189,9 +214,7 @@ namespace DateManagement
         /// <returns></returns>
         public DateTime GetTomorrow(DateTime dateReference)
         {
-            var tomorrow = dateReference.DayOfWeek == DayOfWeek.Friday
-                ? dateReference.AddDays(3)
-                : dateReference.AddDays(1);
+            var tomorrow = dateReference.AddDays(1);
 
             return GetNext(tomorrow);
         }
@@ -202,9 +225,7 @@ namespace DateManagement
         /// <returns></returns>
         public DateTime GetYesterday(DateTime dateReference)
         {
-            var previousDay = dateReference.DayOfWeek == DayOfWeek.Monday
-                    ? dateReference.AddDays(-3)
-                    : dateReference.AddDays(-1);
+            var previousDay = dateReference.AddDays(-1);
 
             return GetLast(previousDay);
         }
@@ -217,8 +238,7 @@ namespace DateManagement
         public bool IsWorkingDay(DateTime dateReference)
         {
             return ListHolidays.All(row => row != dateReference)
-                && dateReference.DayOfWeek != DayOfWeek.Saturday
-                && dateReference.DayOfWeek != DayOfWeek.Sunday;
+                && ListWeekEnd.All(row => row != dateReference.DayOfWeek);
         }
     }
 }
