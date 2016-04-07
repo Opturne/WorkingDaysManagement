@@ -1,4 +1,4 @@
-# DateManagement
+# Working Days Management
 
 A library to manage working days and do simple operations with it.
 
