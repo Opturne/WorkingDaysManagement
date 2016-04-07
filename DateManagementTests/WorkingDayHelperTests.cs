@@ -25,6 +25,14 @@ namespace DateManagement.Tests
         }
 
         [TestMethod]
+        public void WorkingDayHelperDayOfWeekTest()
+        {
+            var helper = new WorkingDayHelper(new List<DayOfWeek>());
+
+            Assert.AreNotEqual(null, helper);
+        }
+
+        [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         public void WorkingDayHelperWeekEndNullTest()
         {

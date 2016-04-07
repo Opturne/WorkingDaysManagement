@@ -112,3 +112,4 @@ Return a list of working days to the dateReference.
 If days is negative, then it's the days before.
 
 #### Working with TimeSpan
+TODO
