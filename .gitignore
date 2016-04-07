@@ -11,3 +11,4 @@
 *.vssscc
 /DateManagement.NuGet.Packager
 *.coverage
+/.vs

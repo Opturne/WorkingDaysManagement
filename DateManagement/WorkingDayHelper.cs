@@ -24,33 +24,33 @@ namespace DateManagement
         }
 
         /// <summary>
-        /// Return the last working day closest to dateReference
+        /// Return the last working day closest to dateReference (including it)
         /// </summary>
         public DateTime GetLast(DateTime dateReference)
         {
-            var lastWorkingDay = dateReference;
+            var lastDay = dateReference;
 
-            while (!IsWorkingDay(lastWorkingDay))
+            while (!IsWorkingDay(lastDay))
             {
-                lastWorkingDay = lastWorkingDay.AddDays(-1);
+                lastDay = lastDay.AddDays(-1);
             }
 
-            return lastWorkingDay;
+            return lastDay;
         }
 
         /// <summary>
-        /// Return the next working day closest to dateReference
+        /// Return the next working day closest to dateReference (including it)
         /// </summary>
         public DateTime GetNext(DateTime dateReference)
         {
-            var nextWorkingDay = dateReference;
+            var nextDay = dateReference;
 
-            while (!IsWorkingDay(nextWorkingDay))
+            while (!IsWorkingDay(nextDay))
             {
-                nextWorkingDay = nextWorkingDay.AddDays(1);
+                nextDay = nextDay.AddDays(1);
             }
 
-            return nextWorkingDay;
+            return nextDay;
         }
 
         /// <summary>
