@@ -6,8 +6,8 @@
     <ProjectGuid>{5191FBDF-3373-4C75-B425-F6568CB17795}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DateManagementTests</RootNamespace>
-    <AssemblyName>DateManagementTests</AssemblyName>
+    <RootNamespace>WorkingDaysManagementTests</RootNamespace>
+    <AssemblyName>WorkingDaysManagementTests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -59,9 +59,9 @@
     <Compile Include="WorkingDayHelperTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DateManagement\DateManagement.csproj">
+    <ProjectReference Include="..\DateManagement\WorkingDaysManagement.csproj">
       <Project>{9A079D26-4D10-47B2-B4E3-00753254B8A6}</Project>
-      <Name>DateManagement</Name>
+      <Name>WorkingDaysManagement</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

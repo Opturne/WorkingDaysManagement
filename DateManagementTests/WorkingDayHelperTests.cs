@@ -1,9 +1,9 @@
-﻿using DateManagementTests.Utils;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using WorkingDaysManagementTests.Utils;
 
-namespace DateManagement.Tests
+namespace WorkingDaysManagement.Tests
 {
     [TestClass]
     public class WorkingDayHelperTests

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace DateManagement
+namespace WorkingDaysManagement
 {
     /// <summary>
     /// Helper into managing working days

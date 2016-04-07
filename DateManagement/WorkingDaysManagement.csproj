@@ -7,8 +7,8 @@
     <ProjectGuid>{9A079D26-4D10-47B2-B4E3-00753254B8A6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DateManagement</RootNamespace>
-    <AssemblyName>DateManagement</AssemblyName>
+    <RootNamespace>WorkingDaysManagement</RootNamespace>
+    <AssemblyName>WorkingDaysManagement</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>SAK</SccProjectName>

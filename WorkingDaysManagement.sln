@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DateManagement", "DateManagement\DateManagement.csproj", "{9A079D26-4D10-47B2-B4E3-00753254B8A6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkingDaysManagement", "DateManagement\WorkingDaysManagement.csproj", "{9A079D26-4D10-47B2-B4E3-00753254B8A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DateManagementTests", "DateManagementTests\DateManagementTests.csproj", "{5191FBDF-3373-4C75-B425-F6568CB17795}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkingDaysManagementTests", "DateManagementTests\WorkingDaysManagementTests.csproj", "{5191FBDF-3373-4C75-B425-F6568CB17795}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

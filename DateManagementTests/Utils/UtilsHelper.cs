@@ -1,8 +1,8 @@
-﻿using DateManagement;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using WorkingDaysManagement;
 
-namespace DateManagementTests.Utils
+namespace WorkingDaysManagementTests.Utils
 {
     public static class UtilsHelper
     {
