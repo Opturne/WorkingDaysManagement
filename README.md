@@ -61,23 +61,23 @@ DateTime GetYesterday(DateTime dateReference)
 ```
 Return the last working day before dateReference
 
-#### Get x working days in the past
+##### Get x working days in the past
 ```csharp
 DateTime PastWorkingDays(DateTime dateReference, int days)
 ```
 Get the date x working days in the past
 
-#### Get x working days in the futur
+##### Get x working days in the futur
 ```csharp
 DateTime FuturWorkingDays(DateTime dateReference, int days)
 ```
 Get the date x working days in the futur
 
-#### Get the list of working days from a reference
+##### Get the list of working days from a reference
 ```csharp
 List<DateTime> GetSpanDates(DateTime dateReference, int days)
 ```
 Return the DateTime list of working days to the dateReference.
 If days is negative, then it's the days before instead of after.
 
-### Work with TimeSpan
+#### Work with TimeSpan
