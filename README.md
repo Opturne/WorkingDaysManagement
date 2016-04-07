@@ -111,12 +111,12 @@ List<DateTime> GetSpanDates(DateTime dateReference, int days)
 int GetSpanDays(DateTime dateReference, TimeSpan span)
 ```
 
-#### Get the last working day
+##### Get the last working day
 ```csharp
 DateTime GetSpanEnd(DateTime dateReference, TimeSpan span)
 ```
 
-#### Get the first working day
+##### Get the first working day
 ```csharp
 DateTime GetSpanStart(DateTime dateReference, TimeSpan span)
 ```
