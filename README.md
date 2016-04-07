@@ -6,7 +6,9 @@ A library to manage working days and do simple operations with it.
 
 ### Installation
 
-For now, the library is only available by branching and compile.
+To install Working Days Management, run the following command in the Package Manager Console
+
+    PM> Install-Package WorkingDaysManagement
 
 ### Instantiation
 
