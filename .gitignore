@@ -2,13 +2,13 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/DateManagement/obj/Debug
-/DateManagement/bin/Debug
-/DateManagement/.vs/DateManagement/v14
-/DateManagementTests/bin/Debug
-/DateManagementTests/obj/Debug
-/DateManagementTests/DateManagementTests.csproj.vspscc
-*.vssscc
-/DateManagement.NuGet.Packager
-*.coverage
+/DateManagement/obj/
+/DateManagement/bin/
+/DateManagement/.vs/
+/DateManagementTests/bin/
+/DateManagementTests/obj/
 /.vs
+/TestResults
+*.vssscc
+*.coverage
+
