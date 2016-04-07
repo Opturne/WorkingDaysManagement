@@ -112,4 +112,21 @@ Return a list of working days to the dateReference.
 If days is negative, then it's the days before.
 
 #### Working with TimeSpan
-TODO
+
+##### Get the numbers of days
+```csharp
+int GetSpanDays(DateTime dateReference, TimeSpan span)
+```
+Return the number of days between the dateReference and the next max working day of the span
+
+#### Get the last working day
+```csharp
+DateTime GetSpanEnd(DateTime dateReference, TimeSpan span)
+```
+Return the last working day of the interval
+
+#### Get the first working day
+```csharp
+DateTime GetSpanStart(DateTime dateReference, TimeSpan span)
+```
+Return the first working day of the interval

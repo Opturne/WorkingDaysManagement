@@ -114,7 +114,7 @@ namespace WorkingDaysManagement
         /// Return the number of days between the dateReference and the next max working day of the span
         /// </summary>
         /// <returns></returns>
-        public double GetSpanDays(DateTime dateReference, TimeSpan span)
+        public int GetSpanDays(DateTime dateReference, TimeSpan span)
         {
             var newDay = dateReference.Add(span);
 

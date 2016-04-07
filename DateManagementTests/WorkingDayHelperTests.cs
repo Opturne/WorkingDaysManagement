@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using WorkingDaysManagement;
 using WorkingDaysManagementTests.Utils;
 
-namespace WorkingDaysManagement.Tests
+namespace WorkingDaysManagementTests
 {
     [TestClass]
     public class WorkingDayHelperTests
@@ -249,7 +249,7 @@ namespace WorkingDaysManagement.Tests
             Assert.AreEqual(367.00, managementHelper.GetSpanDays(dateReference, dateReference.AddYears(1) - dateReference));
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void EasterDayTest()
         {
             var managementHelper = UtilsHelper.CreateDateManagementHelper();
