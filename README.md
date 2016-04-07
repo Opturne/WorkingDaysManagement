@@ -31,13 +31,13 @@ var listHolidays = new List<DateTime>
 ```
 ### Methods
 
-##### Test if this is a Working Day
+##### Is it a working day?
 ```csharp
 bool IsWorkingDay(DateTime dateReference)
 ```
 Is dateReference a working day?
 
-##### Get The closest working day from a DateTime
+##### Get The closest working day
 
 ```csharp
 DateTime GetLast(DateTime dateReference)
@@ -77,7 +77,7 @@ Get the date x working days in the futur
 ```csharp
 List<DateTime> GetSpanDates(DateTime dateReference, int days)
 ```
-Return the DateTime list of working days to the dateReference.
-If days is negative, then it's the days before instead of after.
+Return a list of working days to the dateReference.
+If days is negative, then it's the days before.
 
-#### Work with TimeSpan
+#### Working with TimeSpan

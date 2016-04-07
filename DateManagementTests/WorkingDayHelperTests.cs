@@ -33,7 +33,7 @@ namespace DateManagement.Tests
         }
 
         [TestMethod]
-        public void TestCalculDate1JourFerie()
+        public void Date1Holiday()
         {
             var dureeStock = new TimeSpan(-7, 0, 0, 0);
             var dateReference = new DateTime(2015, 01, 08);
@@ -46,7 +46,7 @@ namespace DateManagement.Tests
         }
 
         [TestMethod]
-        public void TestCalculDate1JourFerieCas2()
+        public void Date1HolidayCas2()
         {
             var dureeStock = new TimeSpan(-7, 0, 0, 0);
             var dateReference = new DateTime(2015, 01, 07);
@@ -59,7 +59,7 @@ namespace DateManagement.Tests
         }
 
         [TestMethod]
-        public void TestCalculDate1JourFerieCas3()
+        public void Date1HolidayCas3()
         {
             var dureeStock = new TimeSpan(-7, 0, 0, 0);
             var dateReference = new DateTime(2015, 12, 28);
@@ -72,7 +72,7 @@ namespace DateManagement.Tests
         }
 
         [TestMethod]
-        public void TestCalculDate1JourFerieCas4()
+        public void Date1HolidayCas4()
         {
             var dureeStock = new TimeSpan(-7, 0, 0, 0);
             var dateReference = new DateTime(2015, 12, 29);
@@ -85,7 +85,7 @@ namespace DateManagement.Tests
         }
 
         [TestMethod]
-        public void TestCalculDate2JoursFeriesCas1()
+        public void Date2JoursFeriesCas1()
         {
             var dureeStock = new TimeSpan(-7, 0, 0, 0);
             var dateReference = new DateTime(2014, 12, 30);
@@ -98,7 +98,7 @@ namespace DateManagement.Tests
         }
 
         [TestMethod]
-        public void TestCalculDate2JoursFeriesCas2()
+        public void Date2JoursFeriesCas2()
         {
             var dureeStock = new TimeSpan(-7, 0, 0, 0);
             var dateReference = new DateTime(2016, 01, 04);
@@ -111,7 +111,7 @@ namespace DateManagement.Tests
         }
 
         [TestMethod]
-        public void TestCalculDate3JourFerie()
+        public void Date3Holiday()
         {
             var dureeStock = new TimeSpan(-7, 0, 0, 0);
             var dateReference = new DateTime(2015, 01, 02);
@@ -124,7 +124,7 @@ namespace DateManagement.Tests
         }
 
         [TestMethod]
-        public void TestCalculDateAucunJourFerie()
+        public void DateNoHoliday()
         {
             var dureeStock = new TimeSpan(-7, 0, 0, 0);
             var dateReference = new DateTime(2015, 01, 13);
@@ -137,7 +137,7 @@ namespace DateManagement.Tests
         }
 
         [TestMethod]
-        public void TestCalculDateNormal()
+        public void DateNormal()
         {
             var dureeStock = new TimeSpan(-7, 0, 0, 0);
             var dateReference = new DateTime(2015, 07, 23);
@@ -150,7 +150,7 @@ namespace DateManagement.Tests
         }
 
         [TestMethod]
-        public void TestCalculDateWeekEnd()
+        public void DateWeekEnd()
         {
             var dureeStock = new TimeSpan(-7, 0, 0, 0);
             var dateReference = new DateTime(2015, 01, 12);
@@ -163,7 +163,7 @@ namespace DateManagement.Tests
         }
 
         [TestMethod]
-        public void TestCalculLendemainJourFeriePuisWeekend()
+        public void TomorrowHolidayPuisWeekend()
         {
             var dateReference = new DateTime(2015, 04, 30);
             var managementHelper = UtilsHelper.CreateDateManagementHelper();
@@ -172,7 +172,7 @@ namespace DateManagement.Tests
         }
 
         [TestMethod]
-        public void TestCalculLendemainSemaine()
+        public void TomorrowWeek()
         {
             var dateReference = new DateTime(2015, 08, 11);
             var managementHelper = UtilsHelper.CreateDateManagementHelper();
@@ -181,7 +181,7 @@ namespace DateManagement.Tests
         }
 
         [TestMethod]
-        public void TestCalculLendemainSemaineJourFerie()
+        public void TomorrowWeekHoliday()
         {
             var dateReference = new DateTime(2014, 12, 31);
             var managementHelper = UtilsHelper.CreateDateManagementHelper();
@@ -190,7 +190,7 @@ namespace DateManagement.Tests
         }
 
         [TestMethod]
-        public void TestCalculLendemainWeekend()
+        public void TomorrowWeekend()
         {
             var dateReference = new DateTime(2015, 08, 11);
             var managementHelper = UtilsHelper.CreateDateManagementHelper();
@@ -199,7 +199,7 @@ namespace DateManagement.Tests
         }
 
         [TestMethod]
-        public void TestCalculLendemainWeekendPuisJourFerie()
+        public void TomorrowWeekendThenHoliday()
         {
             var dateReference = new DateTime(2015, 04, 03);
             var managementHelper = UtilsHelper.CreateDateManagementHelper();
@@ -208,7 +208,7 @@ namespace DateManagement.Tests
         }
 
         [TestMethod]
-        public void TestCalculNbJoursUnAnDimanche()
+        public void NbDays1YearSunday()
         {
             var dateReference = new DateTime(2014, 11, 22);
             var managementHelper = UtilsHelper.CreateDateManagementHelper();
@@ -217,7 +217,7 @@ namespace DateManagement.Tests
         }
 
         [TestMethod]
-        public void TestCalculNbJoursUnAnFerie()
+        public void NbDays1YearHoliday()
         {
             var dateReference = new DateTime(2015, 03, 28);
             var managementHelper = UtilsHelper.CreateDateManagementHelper();
@@ -226,7 +226,7 @@ namespace DateManagement.Tests
         }
 
         [TestMethod]
-        public void TestCalculNbJoursUnAnSamedi()
+        public void NbDays1YearSaturday()
         {
             var dateReference = new DateTime(2014, 11, 21);
             var managementHelper = UtilsHelper.CreateDateManagementHelper();

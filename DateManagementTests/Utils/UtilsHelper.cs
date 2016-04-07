@@ -6,7 +6,7 @@ namespace DateManagementTests.Utils
 {
     public static class UtilsHelper
     {
-        public static List<DateTime> listJourFeries = new List<DateTime>
+        public static List<DateTime> listHolidays = new List<DateTime>
         {
             new DateTime(2014,12,25),
             new DateTime(2015,01,01),
@@ -22,7 +22,7 @@ namespace DateManagementTests.Utils
 
         public static WorkingDayHelper CreateDateManagementHelper()
         {
-            return new WorkingDayHelper(listJourFeries);
+            return new WorkingDayHelper(listHolidays);
         }
     }
 }

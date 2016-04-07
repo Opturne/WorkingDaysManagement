@@ -54,8 +54,8 @@ namespace DateManagement
         }
 
         /// <summary>
-        /// Return the DateTime list of working days to the dateReference If days is negative, then
-        /// it's the days before instade of after
+        /// Return a list of working days to the dateReference. If days is negative, then it's the
+        /// days before.
         /// </summary>
         /// <returns></returns>
         public List<DateTime> GetSpanDates(DateTime dateReference, int days)
@@ -162,7 +162,7 @@ namespace DateManagement
         }
 
         /// <summary>
-        /// Get the date x working days in the future
+        /// Get the date x working days in the futur
         /// </summary>
         /// <param name="dateReference"></param>
         /// <param name="days"></param>
@@ -210,7 +210,7 @@ namespace DateManagement
         }
 
         /// <summary>
-        /// Is dateReference a holiday.
+        /// Is dateReference a working day?
         /// </summary>
         /// <param name="dateReference"></param>
         /// <returns></returns>
