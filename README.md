@@ -30,7 +30,7 @@ var listHolidays = new List<DateTime>
 var helper = new WorkingDayHelper(listHolidays);
 ```
 
-* With a list of off-work days of the week
+* With a list of days off
 
 ```csharp
 var listWeekEnd = new List<DayOfWeek>
