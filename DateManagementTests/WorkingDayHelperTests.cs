@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using WorkingDaysManagement;
 using WorkingDaysManagementTests.Utils;
 
 namespace WorkingDaysManagement.Tests
@@ -246,6 +247,17 @@ namespace WorkingDaysManagement.Tests
             var managementHelper = UtilsHelper.CreateDateManagementHelper();
 
             Assert.AreEqual(367.00, managementHelper.GetSpanDays(dateReference, dateReference.AddYears(1) - dateReference));
+        }
+
+        [TestMethod()]
+        public void EasterDayTest()
+        {
+            var managementHelper = UtilsHelper.CreateDateManagementHelper();
+
+            Assert.AreEqual(new DateTime(2025, 04, 20), managementHelper.EasterDay(2025));
+            Assert.AreEqual(new DateTime(1996, 04, 07), managementHelper.EasterDay(1996));
+            Assert.AreEqual(new DateTime(2010, 04, 04), managementHelper.EasterDay(2010));
+            Assert.AreEqual(new DateTime(2019, 04, 21), managementHelper.EasterDay(2019));
         }
     }
 }
