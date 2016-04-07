@@ -16,7 +16,7 @@ For now, the library is only available by branching and compile.
 var helper = new WorkingDayHelper();
 ```
 
-* With a list of Holidays
+* With a list of Holidays (Default : none)
 
 ```csharp
 var listHolidays = new List<DateTime>
@@ -30,7 +30,7 @@ var listHolidays = new List<DateTime>
 var helper = new WorkingDayHelper(listHolidays);
 ```
 
-* With a list of days off
+* With a list of days off (Default : Saturday and Sunday)
 
 ```csharp
 var listWeekEnd = new List<DayOfWeek>
