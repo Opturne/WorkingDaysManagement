@@ -68,50 +68,41 @@ var helper = new WorkingDayHelper(listHolidays, listWeekEnd);
 ```csharp
 bool IsWorkingDay(DateTime dateReference)
 ```
-Is dateReference a working day?
 
 ##### Get The closest working day
 
 ```csharp
 DateTime GetLast(DateTime dateReference)
 ```
-Return the last working day closest to dateReference (including it)
 
 ```csharp
 DateTime GetNext(DateTime dateReference)
 ```
-Return the next working day closest to dateReference (including it)
 
 ##### Get The next working day
 ```csharp
 DateTime GetTomorrow(DateTime dateReference)
 ```
-Return the next working day after dateReference
 
 ##### Get The previous working day
 ```csharp
 DateTime GetYesterday(DateTime dateReference)
 ```
-Return the last working day before dateReference
 
 ##### Get x working days in the past
 ```csharp
 DateTime PastWorkingDays(DateTime dateReference, int days)
 ```
-Get the date x working days in the past
 
 ##### Get x working days in the futur
 ```csharp
 DateTime FuturWorkingDays(DateTime dateReference, int days)
 ```
-Get the date x working days in the futur
 
 ##### Get the list of working days from a reference
 ```csharp
 List<DateTime> GetSpanDates(DateTime dateReference, int days)
 ```
-Return a list of working days to the dateReference.
-If days is negative, then it's the days before.
 
 #### Working with TimeSpan
 
@@ -119,16 +110,13 @@ If days is negative, then it's the days before.
 ```csharp
 int GetSpanDays(DateTime dateReference, TimeSpan span)
 ```
-Return the number of days between the dateReference and the next max working day of the span
 
 #### Get the last working day
 ```csharp
 DateTime GetSpanEnd(DateTime dateReference, TimeSpan span)
 ```
-Return the last working day of the interval
 
 #### Get the first working day
 ```csharp
 DateTime GetSpanStart(DateTime dateReference, TimeSpan span)
 ```
-Return the first working day of the interval
