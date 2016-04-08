@@ -1,10 +1,10 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
-using WorkingDaysManagement;
+using System.Linq;
 using WorkingDaysManagementTests.Utils;
 
-namespace WorkingDaysManagementTests
+namespace WorkingDaysManagement.Tests
 {
     [TestClass]
     public class WorkingDayHelperTests
@@ -81,7 +81,7 @@ namespace WorkingDaysManagementTests
         }
 
         [TestMethod]
-        public void GetLast1HolidayCas3()
+        public void GetLast1Holiday3()
         {
             var dateReference = new DateTime(2015, 12, 28);
             var managementHelper = UtilsHelper.CreateDateManagementHelper();
@@ -90,7 +90,7 @@ namespace WorkingDaysManagementTests
         }
 
         [TestMethod]
-        public void GetLast1HolidayCas4()
+        public void GetLast1Holiday4()
         {
             var dateReference = new DateTime(2015, 12, 29);
             var managementHelper = UtilsHelper.CreateDateManagementHelper();
@@ -99,7 +99,7 @@ namespace WorkingDaysManagementTests
         }
 
         [TestMethod]
-        public void GetLast2HolidaysCas1()
+        public void GetLast2Holidays1()
         {
             var dateReference = new DateTime(2014, 12, 30);
             var managementHelper = UtilsHelper.CreateDateManagementHelper();
@@ -108,7 +108,7 @@ namespace WorkingDaysManagementTests
         }
 
         [TestMethod]
-        public void GetLast2HolidaysCas2()
+        public void GetLast2Holidays2()
         {
             var dateReference = new DateTime(2016, 01, 04);
             var managementHelper = UtilsHelper.CreateDateManagementHelper();
@@ -190,7 +190,7 @@ namespace WorkingDaysManagementTests
         }
 
         [TestMethod]
-        public void GetSpanEnd1HolidayCas2()
+        public void GetSpanEnd1Holiday2()
         {
             var dureeStock = new TimeSpan(7, 0, 0, 0);
             var dateReference = new DateTime(2014, 12, 30);
@@ -200,7 +200,7 @@ namespace WorkingDaysManagementTests
         }
 
         [TestMethod]
-        public void GetSpanEnd1HolidayCas3()
+        public void GetSpanEnd1Holiday3()
         {
             var dureeStock = new TimeSpan(7, 0, 0, 0);
             var dateReference = new DateTime(2015, 12, 19);
@@ -210,7 +210,7 @@ namespace WorkingDaysManagementTests
         }
 
         [TestMethod]
-        public void GetSpanEnd1HolidayCas4()
+        public void GetSpanEnd1Holiday4()
         {
             var dureeStock = new TimeSpan(7, 0, 0, 0);
             var dateReference = new DateTime(2015, 12, 29);
@@ -220,7 +220,7 @@ namespace WorkingDaysManagementTests
         }
 
         [TestMethod]
-        public void GetSpanEnd2HolidaysCas1()
+        public void GetSpanEnd2Holidays1()
         {
             var dureeStock = new TimeSpan(7, 0, 0, 0);
             var dateReference = new DateTime(2016, 03, 24);
@@ -230,7 +230,7 @@ namespace WorkingDaysManagementTests
         }
 
         [TestMethod]
-        public void GetSpanEnd2HolidaysCas2()
+        public void GetSpanEnd2Holidays2()
         {
             var dureeStock = new TimeSpan(7, 0, 0, 0);
             var dateReference = new DateTime(2015, 12, 24);
@@ -290,7 +290,7 @@ namespace WorkingDaysManagementTests
         }
 
         [TestMethod]
-        public void GetSpanStart1HolidayCas2()
+        public void GetSpanStart1Holiday2()
         {
             var dureeStock = new TimeSpan(-7, 0, 0, 0);
             var dateReference = new DateTime(2015, 01, 07);
@@ -300,7 +300,7 @@ namespace WorkingDaysManagementTests
         }
 
         [TestMethod]
-        public void GetSpanStart1HolidayCas3()
+        public void GetSpanStart1Holiday3()
         {
             var dureeStock = new TimeSpan(-7, 0, 0, 0);
             var dateReference = new DateTime(2015, 12, 28);
@@ -310,7 +310,7 @@ namespace WorkingDaysManagementTests
         }
 
         [TestMethod]
-        public void GetSpanStart1HolidayCas4()
+        public void GetSpanStart1Holiday4()
         {
             var dureeStock = new TimeSpan(-7, 0, 0, 0);
             var dateReference = new DateTime(2015, 12, 29);
@@ -320,7 +320,7 @@ namespace WorkingDaysManagementTests
         }
 
         [TestMethod]
-        public void GetSpanStart2HolidaysCas1()
+        public void GetSpanStart2Holidays1()
         {
             var dureeStock = new TimeSpan(-7, 0, 0, 0);
             var dateReference = new DateTime(2014, 12, 30);
@@ -330,7 +330,7 @@ namespace WorkingDaysManagementTests
         }
 
         [TestMethod]
-        public void GetSpanStart2HolidaysCas2()
+        public void GetSpanStart2Holidays2()
         {
             var dureeStock = new TimeSpan(-7, 0, 0, 0);
             var dateReference = new DateTime(2016, 01, 04);
@@ -434,7 +434,7 @@ namespace WorkingDaysManagementTests
         }
 
         [TestMethod]
-        public void GetYesterday1HolidayCas2()
+        public void GetYesterday1Holiday2()
         {
             var dateReference = new DateTime(2015, 01, 07);
             var managementHelper = UtilsHelper.CreateDateManagementHelper();
@@ -443,7 +443,7 @@ namespace WorkingDaysManagementTests
         }
 
         [TestMethod]
-        public void GetYesterday1HolidayCas3()
+        public void GetYesterday1Holiday3()
         {
             var dateReference = new DateTime(2015, 12, 28);
             var managementHelper = UtilsHelper.CreateDateManagementHelper();
@@ -452,7 +452,7 @@ namespace WorkingDaysManagementTests
         }
 
         [TestMethod]
-        public void GetYesterday1HolidayCas4()
+        public void GetYesterday1Holiday4()
         {
             var dateReference = new DateTime(2015, 12, 29);
             var managementHelper = UtilsHelper.CreateDateManagementHelper();
@@ -461,7 +461,7 @@ namespace WorkingDaysManagementTests
         }
 
         [TestMethod]
-        public void GetYesterday2HolidaysCas1()
+        public void GetYesterday2Holidays1()
         {
             var dateReference = new DateTime(2014, 12, 30);
             var managementHelper = UtilsHelper.CreateDateManagementHelper();
@@ -470,7 +470,7 @@ namespace WorkingDaysManagementTests
         }
 
         [TestMethod]
-        public void GetYesterday2HolidaysCas2()
+        public void GetYesterday2Holidays2()
         {
             var dateReference = new DateTime(2016, 01, 04);
             var managementHelper = UtilsHelper.CreateDateManagementHelper();
@@ -515,6 +515,116 @@ namespace WorkingDaysManagementTests
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void FuturWorkingDaysNegativeValue()
+        {
+            var dateReference = new DateTime(2014, 12, 31);
+            var managementHelper = UtilsHelper.CreateDateManagementHelper();
+
+            managementHelper.FuturWorkingDays(dateReference, -5);
+        }
+
+        [TestMethod]
+        public void FuturWorkingDays1Holiday()
+        {
+            var dateReference = new DateTime(2014, 12, 31);
+            var managementHelper = UtilsHelper.CreateDateManagementHelper();
+
+            Assert.AreEqual(Convert.ToDateTime("2015-01-08"), managementHelper.FuturWorkingDays(dateReference, 5));
+        }
+
+        [TestMethod]
+        public void FuturWorkingDays1Holiday2()
+        {
+            var dateReference = new DateTime(2014, 12, 30);
+            var managementHelper = UtilsHelper.CreateDateManagementHelper();
+
+            Assert.AreEqual(Convert.ToDateTime("2015-01-07"), managementHelper.FuturWorkingDays(dateReference, 5));
+        }
+
+        [TestMethod]
+        public void FuturWorkingDays1Holiday3()
+        {
+            var dateReference = new DateTime(2015, 12, 18);
+            var managementHelper = UtilsHelper.CreateDateManagementHelper();
+
+            Assert.AreEqual(Convert.ToDateTime("2015-12-28"), managementHelper.FuturWorkingDays(dateReference, 5));
+        }
+
+        [TestMethod]
+        public void FuturWorkingDays1Holiday4()
+        {
+            var dateReference = new DateTime(2015, 12, 21);
+            var managementHelper = UtilsHelper.CreateDateManagementHelper();
+
+            Assert.AreEqual(Convert.ToDateTime("2015-12-29"), managementHelper.FuturWorkingDays(dateReference, 5));
+        }
+
+        [TestMethod]
+        public void FuturWorkingDays2Holidays1()
+        {
+            var dateReference = new DateTime(2014, 12, 22);
+            var managementHelper = UtilsHelper.CreateDateManagementHelper();
+
+            Assert.AreEqual(Convert.ToDateTime("2014-12-30"), managementHelper.FuturWorkingDays(dateReference, 5));
+        }
+
+        [TestMethod]
+        public void FuturWorkingDays2Holidays2()
+        {
+            var dateReference = new DateTime(2015, 12, 24);
+            var managementHelper = UtilsHelper.CreateDateManagementHelper();
+
+            Assert.AreEqual(Convert.ToDateTime("2016-01-04"), managementHelper.FuturWorkingDays(dateReference, 5));
+        }
+
+        [TestMethod]
+        public void FuturWorkingDays3Holiday()
+        {
+            var dateReference = new DateTime(2014, 12, 24);
+            var managementHelper = UtilsHelper.CreateDateManagementHelper();
+
+            Assert.AreEqual(Convert.ToDateTime("2015-01-02"), managementHelper.FuturWorkingDays(dateReference, 5));
+        }
+
+        [TestMethod]
+        public void FuturWorkingDaysNoHoliday()
+        {
+            var dateReference = new DateTime(2015, 01, 06);
+            var managementHelper = UtilsHelper.CreateDateManagementHelper();
+
+            Assert.AreEqual(Convert.ToDateTime("2015-01-13"), managementHelper.FuturWorkingDays(dateReference, 5));
+        }
+
+        [TestMethod]
+        public void FuturWorkingDaysNormal()
+        {
+            var dateReference = new DateTime(2015, 07, 16);
+            var managementHelper = UtilsHelper.CreateDateManagementHelper();
+
+            Assert.AreEqual(Convert.ToDateTime("2015-07-23"), managementHelper.FuturWorkingDays(dateReference, 5));
+        }
+
+        [TestMethod]
+        public void FuturWorkingDaysWeekEnd()
+        {
+            var dateReference = new DateTime(2015, 01, 05);
+            var managementHelper = UtilsHelper.CreateDateManagementHelper();
+
+            Assert.AreEqual(Convert.ToDateTime("2015-01-12"), managementHelper.FuturWorkingDays(dateReference, 5));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void PastWorkingDaysNegativeValue()
+        {
+            var dateReference = new DateTime(2014, 12, 31);
+            var managementHelper = UtilsHelper.CreateDateManagementHelper();
+
+            managementHelper.PastWorkingDays(dateReference, -5);
+        }
+
+        [TestMethod]
         public void PastWorkingDays1Holiday()
         {
             var dateReference = new DateTime(2015, 01, 08);
@@ -524,7 +634,7 @@ namespace WorkingDaysManagementTests
         }
 
         [TestMethod]
-        public void PastWorkingDays1HolidayCas2()
+        public void PastWorkingDays1Holiday2()
         {
             var dateReference = new DateTime(2015, 01, 07);
             var managementHelper = UtilsHelper.CreateDateManagementHelper();
@@ -533,7 +643,7 @@ namespace WorkingDaysManagementTests
         }
 
         [TestMethod]
-        public void PastWorkingDays1HolidayCas3()
+        public void PastWorkingDays1Holiday3()
         {
             var dateReference = new DateTime(2015, 12, 28);
             var managementHelper = UtilsHelper.CreateDateManagementHelper();
@@ -542,7 +652,7 @@ namespace WorkingDaysManagementTests
         }
 
         [TestMethod]
-        public void PastWorkingDays1HolidayCas4()
+        public void PastWorkingDays1Holiday4()
         {
             var dateReference = new DateTime(2015, 12, 29);
             var managementHelper = UtilsHelper.CreateDateManagementHelper();
@@ -551,7 +661,7 @@ namespace WorkingDaysManagementTests
         }
 
         [TestMethod]
-        public void PastWorkingDays2HolidaysCas1()
+        public void PastWorkingDays2Holidays1()
         {
             var dateReference = new DateTime(2014, 12, 30);
             var managementHelper = UtilsHelper.CreateDateManagementHelper();
@@ -560,7 +670,7 @@ namespace WorkingDaysManagementTests
         }
 
         [TestMethod]
-        public void PastWorkingDays2HolidaysCas2()
+        public void PastWorkingDays2Holidays2()
         {
             var dateReference = new DateTime(2016, 01, 04);
             var managementHelper = UtilsHelper.CreateDateManagementHelper();
@@ -602,6 +712,114 @@ namespace WorkingDaysManagementTests
             var managementHelper = UtilsHelper.CreateDateManagementHelper();
 
             Assert.AreEqual(Convert.ToDateTime("2015-01-05"), managementHelper.PastWorkingDays(dateReference, 5));
+        }
+
+        [TestMethod()]
+        public void GetSpanDatesNormal()
+        {
+            var dateReference = new DateTime(2016, 04, 04);
+            var managementHelper = UtilsHelper.CreateDateManagementHelper();
+
+            var result = managementHelper.GetSpanDates(dateReference, 5);
+
+            Assert.AreEqual(6, result.Count);
+            Assert.AreEqual(Convert.ToDateTime("2016-04-11"), result.Max());
+        }
+
+        [TestMethod()]
+        public void GetSpanDatesWeekEnd()
+        {
+            var dateReference = new DateTime(2016, 04, 08);
+            var managementHelper = UtilsHelper.CreateDateManagementHelper();
+
+            var result = managementHelper.GetSpanDates(dateReference, 5);
+
+            Assert.AreEqual(6, result.Count);
+            Assert.AreEqual(Convert.ToDateTime("2016-04-15"), result.Max());
+        }
+
+        [TestMethod]
+        public void GetSpanDates1Holiday()
+        {
+            var dateReference = new DateTime(2014, 12, 31);
+            var managementHelper = UtilsHelper.CreateDateManagementHelper();
+
+            var result = managementHelper.GetSpanDates(dateReference, 5);
+
+            Assert.AreEqual(6, result.Count);
+            Assert.AreEqual(Convert.ToDateTime("2015-01-08"), result.Max());
+        }
+
+        [TestMethod]
+        public void GetSpanDates1Holiday2()
+        {
+            var dateReference = new DateTime(2014, 12, 30);
+            var managementHelper = UtilsHelper.CreateDateManagementHelper();
+
+            var result = managementHelper.GetSpanDates(dateReference, 5);
+
+            Assert.AreEqual(6, result.Count);
+            Assert.AreEqual(Convert.ToDateTime("2015-01-07"), result.Max());
+        }
+
+        [TestMethod]
+        public void GetSpanDates1Holiday3()
+        {
+            var dateReference = new DateTime(2015, 12, 18);
+            var managementHelper = UtilsHelper.CreateDateManagementHelper();
+
+            var result = managementHelper.GetSpanDates(dateReference, 5);
+
+            Assert.AreEqual(6, result.Count);
+            Assert.AreEqual(Convert.ToDateTime("2015-12-28"), result.Max());
+        }
+
+        [TestMethod]
+        public void GetSpanDates1Holiday4()
+        {
+            var dateReference = new DateTime(2015, 12, 21);
+            var managementHelper = UtilsHelper.CreateDateManagementHelper();
+
+            var result = managementHelper.GetSpanDates(dateReference, 5);
+
+            Assert.AreEqual(6, result.Count);
+            Assert.AreEqual(Convert.ToDateTime("2015-12-29"), result.Max());
+        }
+
+        [TestMethod]
+        public void GetSpanDates2Holidays1()
+        {
+            var dateReference = new DateTime(2014, 12, 22);
+            var managementHelper = UtilsHelper.CreateDateManagementHelper();
+
+            var result = managementHelper.GetSpanDates(dateReference, 5);
+
+            Assert.AreEqual(6, result.Count);
+            Assert.AreEqual(Convert.ToDateTime("2014-12-30"), result.Max());
+        }
+
+        [TestMethod]
+        public void GetSpanDates2Holidays2()
+        {
+            var dateReference = new DateTime(2015, 12, 24);
+            var managementHelper = UtilsHelper.CreateDateManagementHelper();
+
+            var result = managementHelper.GetSpanDates(dateReference, 5);
+
+            Assert.AreEqual(6, result.Count);
+            Assert.AreEqual(Convert.ToDateTime("2016-01-04"), result.Max());
+        }
+
+        [TestMethod]
+        public void GetSpanDates3Holiday()
+        {
+            var dateReference = new DateTime(2014, 12, 24);
+            var managementHelper = UtilsHelper.CreateDateManagementHelper();
+
+            var result = managementHelper.GetSpanDates(dateReference, 5);
+
+            Assert.AreEqual(6, result.Count);
+            Assert.AreEqual(Convert.ToDateTime("2015-01-02"), result.Max());
         }
     }
 }
