@@ -106,7 +106,7 @@ List<DateTime> GetSpanDates(DateTime dateReference, int days)
 
 #### Working with TimeSpan
 
-##### Get the numbers of days
+##### Get the numbers of days between the first date and the last working day
 ```csharp
 int GetSpanDays(DateTime dateReference, TimeSpan span)
 ```
