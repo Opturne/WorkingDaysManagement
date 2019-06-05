@@ -127,20 +127,17 @@ namespace WorkingDaysManagement
         /// <returns></returns>
         public DateTime GetSpanEnd(DateTime dateReference, TimeSpan span)
         {
-            DateTime maxDate;
-            DateTime minDate;
+            DateTime dateResult;
             if (dateReference.Add(span) > dateReference)
             {
-                maxDate = dateReference.Add(span);
-                minDate = dateReference;
+                dateResult = dateReference.Add(span);
             }
             else
             {
-                maxDate = dateReference;
-                minDate = dateReference.Add(span);
+                dateResult = dateReference;
             }
 
-            return GetNext(maxDate);
+            return GetNext(dateResult);
         }
 
         /// <summary>
@@ -149,20 +146,17 @@ namespace WorkingDaysManagement
         /// <returns></returns>
         public DateTime GetSpanStart(DateTime dateReference, TimeSpan span)
         {
-            DateTime maxDate;
-            DateTime minDate;
+            DateTime dateResult;
             if (dateReference.Add(span) > dateReference)
             {
-                maxDate = dateReference.Add(span);
-                minDate = dateReference;
+                dateResult = dateReference;
             }
             else
             {
-                maxDate = dateReference;
-                minDate = dateReference.Add(span);
+                dateResult = dateReference.Add(span);
             }
 
-            return GetLast(minDate);
+            return GetLast(dateResult);
         }
 
         /// <summary>
@@ -176,14 +170,14 @@ namespace WorkingDaysManagement
             if (days < 0)
                 throw new ArgumentOutOfRangeException(nameof(days));
 
-            var dayResult = dateReference;
+            var dateResult = dateReference;
 
             for (var i = 0; i < days; i++)
             {
-                dayResult = GetYesterday(dayResult);
+                dateResult = GetYesterday(dateResult);
             }
 
-            return dayResult;
+            return dateResult;
         }
 
         /// <summary>
@@ -197,14 +191,14 @@ namespace WorkingDaysManagement
             if (days < 0)
                 throw new ArgumentOutOfRangeException(nameof(days));
 
-            var dayResult = dateReference;
+            var dateResult = dateReference;
 
             for (var i = 0; i < days; i++)
             {
-                dayResult = GetTomorrow(dayResult);
+                dateResult = GetTomorrow(dateResult);
             }
 
-            return dayResult;
+            return dateResult;
         }
 
         /// <summary>
@@ -248,17 +242,13 @@ namespace WorkingDaysManagement
         /// <returns></returns>
         public DateTime EasterDay(int year)
         {
-            int day = 0;
-            int month = 0;
-
             int g = year % 19;
             int c = year / 100;
             int h = (c - c / 4 - (8 * c + 13) / 25 + 19 * g + 15) % 30;
             int i = h - h / 28 * (1 - h / 28 * (29 / (h + 1)) * ((21 - g) / 11));
 
-            day = i - ((year + year / 4 + i + 2 - c + c / 4) % 7) + 28;
-            month = 3;
-
+            int day = i - (year + year / 4 + i + 2 - c + c / 4) % 7 + 28;
+            int month = 3;
             if (day > 31)
             {
                 month++;
