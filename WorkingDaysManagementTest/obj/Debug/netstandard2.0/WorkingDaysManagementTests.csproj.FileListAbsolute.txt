@@ -1,0 +1,12 @@
+C:\Users\abarr\source\repos\Opturne\WorkingDaysManagement\WorkingDaysManagementTest\bin\Debug\netstandard2.0\WorkingDaysManagementTests.deps.json
+C:\Users\abarr\source\repos\Opturne\WorkingDaysManagement\WorkingDaysManagementTest\bin\Debug\netstandard2.0\WorkingDaysManagementTests.dll
+C:\Users\abarr\source\repos\Opturne\WorkingDaysManagement\WorkingDaysManagementTest\bin\Debug\netstandard2.0\WorkingDaysManagementTests.pdb
+C:\Users\abarr\source\repos\Opturne\WorkingDaysManagement\WorkingDaysManagementTest\bin\Debug\netstandard2.0\WorkingDaysManagement.dll
+C:\Users\abarr\source\repos\Opturne\WorkingDaysManagement\WorkingDaysManagementTest\bin\Debug\netstandard2.0\WorkingDaysManagement.pdb
+C:\Users\abarr\source\repos\Opturne\WorkingDaysManagement\WorkingDaysManagementTest\obj\Debug\netstandard2.0\WorkingDaysManagementTests.csprojAssemblyReference.cache
+C:\Users\abarr\source\repos\Opturne\WorkingDaysManagement\WorkingDaysManagementTest\obj\Debug\netstandard2.0\WorkingDaysManagementTests.csproj.CoreCompileInputs.cache
+C:\Users\abarr\source\repos\Opturne\WorkingDaysManagement\WorkingDaysManagementTest\obj\Debug\netstandard2.0\WorkingDaysManagementTests.AssemblyInfoInputs.cache
+C:\Users\abarr\source\repos\Opturne\WorkingDaysManagement\WorkingDaysManagementTest\obj\Debug\netstandard2.0\WorkingDaysManagementTests.AssemblyInfo.cs
+C:\Users\abarr\source\repos\Opturne\WorkingDaysManagement\WorkingDaysManagementTest\obj\Debug\netstandard2.0\WorkingDaysManagementTests.csproj.CopyComplete
+C:\Users\abarr\source\repos\Opturne\WorkingDaysManagement\WorkingDaysManagementTest\obj\Debug\netstandard2.0\WorkingDaysManagementTests.dll
+C:\Users\abarr\source\repos\Opturne\WorkingDaysManagement\WorkingDaysManagementTest\obj\Debug\netstandard2.0\WorkingDaysManagementTests.pdb

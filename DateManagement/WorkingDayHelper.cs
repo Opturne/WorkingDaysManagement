@@ -53,14 +53,14 @@ namespace WorkingDaysManagement
         /// </summary>
         public DateTime GetLast(DateTime dateReference)
         {
-            var lastDay = dateReference;
+            var dateResult = dateReference;
 
-            while (!IsWorkingDay(lastDay))
+            while (!IsWorkingDay(dateResult))
             {
-                lastDay = lastDay.AddDays(-1);
+                dateResult = dateResult.AddDays(-1);
             }
 
-            return lastDay;
+            return dateResult;
         }
 
         /// <summary>
@@ -68,14 +68,14 @@ namespace WorkingDaysManagement
         /// </summary>
         public DateTime GetNext(DateTime dateReference)
         {
-            var nextDay = dateReference;
+            var dateResult = dateReference;
 
-            while (!IsWorkingDay(nextDay))
+            while (!IsWorkingDay(dateResult))
             {
-                nextDay = nextDay.AddDays(1);
+                dateResult = dateResult.AddDays(1);
             }
 
-            return nextDay;
+            return dateResult;
         }
 
         /// <summary>
