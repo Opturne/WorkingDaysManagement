@@ -3,7 +3,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>WorkingDaysManagement</RootNamespace>
     <AssemblyName>WorkingDaysManagement</AssemblyName>
-    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <Title>WorkingDaysManagement</Title>
     <Version>1.0.0</Version>
     <Copyright>Copyright 2015 Antoine Barruol</Copyright>
