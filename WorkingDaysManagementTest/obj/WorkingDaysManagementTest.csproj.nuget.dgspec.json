@@ -1,0 +1,126 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\abarr\\source\\repos\\Opturne\\WorkingDaysManagement\\WorkingDaysManagementTest\\WorkingDaysManagementTest.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\abarr\\source\\repos\\Opturne\\WorkingDaysManagement\\DateManagement\\WorkingDaysManagement.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\abarr\\source\\repos\\Opturne\\WorkingDaysManagement\\DateManagement\\WorkingDaysManagement.csproj",
+        "projectName": "WorkingDaysManagement",
+        "projectPath": "C:\\Users\\abarr\\source\\repos\\Opturne\\WorkingDaysManagement\\DateManagement\\WorkingDaysManagement.csproj",
+        "packagesPath": "C:\\Users\\abarr\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\abarr\\source\\repos\\Opturne\\WorkingDaysManagement\\DateManagement\\obj\\",
+        "projectStyle": "PackageReference",
+        "crossTargeting": true,
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\abarr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "C:\\Users\\abarr\\source\\repos\\Opturne\\WorkingDaysManagement\\WorkingDaysManagementTest\\WorkingDaysManagementTest.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\abarr\\source\\repos\\Opturne\\WorkingDaysManagement\\WorkingDaysManagementTest\\WorkingDaysManagementTest.csproj",
+        "projectName": "WorkingDaysManagementTest",
+        "projectPath": "C:\\Users\\abarr\\source\\repos\\Opturne\\WorkingDaysManagement\\WorkingDaysManagementTest\\WorkingDaysManagementTest.csproj",
+        "packagesPath": "C:\\Users\\abarr\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\abarr\\source\\repos\\Opturne\\WorkingDaysManagement\\WorkingDaysManagementTest\\obj\\",
+        "projectStyle": "PackageReference",
+        "crossTargeting": true,
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\abarr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {
+              "C:\\Users\\abarr\\source\\repos\\Opturne\\WorkingDaysManagement\\DateManagement\\WorkingDaysManagement.csproj": {
+                "projectPath": "C:\\Users\\abarr\\source\\repos\\Opturne\\WorkingDaysManagement\\DateManagement\\WorkingDaysManagement.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "MSTest.TestFramework": {
+              "target": "Package",
+              "version": "[1.4.0, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.1.1, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}
