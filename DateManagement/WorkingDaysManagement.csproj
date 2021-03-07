@@ -3,11 +3,11 @@
     <OutputType>Library</OutputType>
     <RootNamespace>WorkingDaysManagement</RootNamespace>
     <AssemblyName>WorkingDaysManagement</AssemblyName>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <Title>WorkingDaysManagement</Title>
-    <Version>1.0.0</Version>
-    <Copyright>Copyright 2015 Antoine Barruol</Copyright>
-    <Description>.net library that reads data from the azure rest billing (ratecard and usage) apis and calculates the costs.</Description>
+    <Version>2.0.0</Version>
+    <Copyright>Copyright 2020 Antoine Barruol</Copyright>
+    <Description>.net library that manage working days and hollydays</Description>
     <Authors>Antoine Barruol</Authors>
     <Company>Antoine Barruol</Company>
     <PackageLicenseUrl>https://github.com/Opturne/WorkingDaysManagement/blob/master/LICENSE</PackageLicenseUrl>
@@ -15,8 +15,8 @@
     <RepositoryUrl>https://github.com/Opturne/WorkingDaysManagement/</RepositoryUrl>
     <PackageTags></PackageTags>
     <PackageReleaseNotes>A library to manage working days and do simple operations with it.</PackageReleaseNotes>
-    <AssemblyVersion>1.0.0</AssemblyVersion>
-    <FileVersion>1.0.0</FileVersion>
+    <AssemblyVersion>2.0.0</AssemblyVersion>
+    <FileVersion>2.0.0</FileVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <UnitTestPlatformVersion Condition="'$(UnitTestPlatformVersion)' == ''">$(VisualStudioVersion)</UnitTestPlatformVersion>
   </PropertyGroup>

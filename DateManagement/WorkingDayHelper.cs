@@ -9,9 +9,9 @@ namespace WorkingDaysManagement
     /// </summary>
     public class WorkingDayHelper
     {
-        private static List<DateTime> _defaultHolidays = new List<DateTime>();
+        private static readonly List<DateTime> _defaultHolidays = new List<DateTime>();
 
-        private static List<DayOfWeek> _defaultWeekEnd = new List<DayOfWeek>
+        private static readonly List<DayOfWeek> _defaultWeekEnd = new List<DayOfWeek>
         {
             DayOfWeek.Saturday,
             DayOfWeek.Sunday
@@ -26,11 +26,21 @@ namespace WorkingDaysManagement
         {
         }
 
+        /// <summary>
+        /// Holiday list reference.
+        /// Default : None
+        /// </summary>
+        /// <param name="listHolidays"></param>
         public WorkingDayHelper(IEnumerable<DateTime> listHolidays)
             : this(listHolidays, _defaultWeekEnd)
         {
         }
 
+        /// <summary>
+        /// Weekend list definition
+        /// Default : Saturday & Sunday
+        /// </summary>
+        /// <param name="listWeekEnd"></param>
         public WorkingDayHelper(IEnumerable<DayOfWeek> listWeekEnd)
             : this(_defaultHolidays, listWeekEnd)
         {
